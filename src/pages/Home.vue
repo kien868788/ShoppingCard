@@ -1,5 +1,5 @@
 <template>
-  <div>sadfs dfsda sdaf asdf </div>
+  <div></div>
 </template>
 
 <script>

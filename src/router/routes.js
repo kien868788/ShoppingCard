@@ -1,6 +1,6 @@
 // single pages
-import homePage from '../pages/Home.vue'
-import notFoundPage from '../pages/NotFound.vue'
+import HomePage from '../pages/Home.vue'
+import NotFoundPage from '../pages/NotFound.vue'
 
 import { DOMAIN_TITLE } from '../.env'
 
@@ -8,12 +8,12 @@ export const routes = [
   {
     path: '/',
     name: 'index',
-    component: homePage,
+    component: HomePage,
     meta: { title: `${DOMAIN_TITLE} | home` }
   },
   {
     path: '*',
-    component: notFoundPage,
+    component: NotFoundPage,
     meta: { title: `${DOMAIN_TITLE} | not found` }
   }
 ]
