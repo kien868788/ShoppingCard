@@ -12,22 +12,12 @@
       </v-card-title>
       <v-card-actions>
         <v-container>
-          <v-row>
-            <v-file-input
-              v-model="images"
-              height="200"
-              multiple
-              outlined
-              :prepend-icon="null"
-              accept="image/png, image/jpeg, image/bmp"
+          <v-row justify="center">
+            <file-pond
+              class-name="admin-product__filepond"
+              allow-multiple
             >
-              <template v-slot:selection="{ file }">
-                <product-image-picker
-                  :file="file"
-                >
-                </product-image-picker>
-              </template>
-            </v-file-input>
+            </file-pond>
           </v-row>
         </v-container>
       </v-card-actions>
@@ -50,9 +40,22 @@ export default {
       images: []
     }
   },
+
+  methods: {
+    handleFilePondInit: function() {
+      console.log('FilePond has initialized');
+
+      // FilePond instance methods are available on `this.$refs.pond`
+    }
+  }
 }
 </script>
 
-<style scoped>
+<style lang="stylus">
+  .admin-product__filepond
+    width 550px
+
+  .filepond--item
+    width: calc(50% - .5em)
 
 </style>
