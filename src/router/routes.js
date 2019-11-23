@@ -10,6 +10,9 @@ import UserProdcuts from '../components/user/Products'
 import UserFavoriteProducts from '../components/user/FavoriteProducts'
 
 import AdminPage from '../pages/Admin'
+import AdminProducts from '../components/admin/Products'
+
+
 import ProductDetailPage from '../pages/ProductDetail'
 
 
@@ -62,8 +65,16 @@ export const routes = [
   },
   {
     path: '/admin',
+    name: 'admin-page',
     component: AdminPage,
     meta: { title: `${DOMAIN_TITLE} | Quản lý `, isAuth: true },
+    children: [
+      {
+        path: 'products',
+        name: 'admin-products',
+        component: AdminProducts
+      }
+    ]
   },
   {
     path: '*',

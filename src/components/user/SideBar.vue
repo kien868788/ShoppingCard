@@ -1,23 +1,66 @@
 <template>
   <div>
-    <ul>
-    <b>Quản lý tài khoản</b>
-    <li class="button-info" @click="$router.push({ name: 'user-infor'})">Thông tin tài khoản</li>
-    <li class="button-change-pass" @click="$router.push({ name: 'user-password'})">Đổi mật khẩu </li>
-    <li class="button-vocher">Mã giảm giá của bạn</li>
-    <li class="button-quesion">Hỏi đáp</li>
-    </ul>
-    <ul>
-      <b>Quản lý đơn hàng</b>
-      <li class="button-product" @click="$router.push({ name: 'user-products'})">Sản phẩm đã mua</li>
-      <li class="button-address" @click="$router.push({ name: 'user-address' })">Địa chỉ nhận hàng</li>
-      <li class="button-favorite-product" @click="$router.push({ name: 'user-favorite-products' })">Sản phẩm yêu thích</li>
-    </ul>
+    <v-list v-for="(item, i) in lists" :key="i">
+      <v-subheader class="subtitle-1 font-weight-bold"> {{ item.header }} </v-subheader>
+
+      <v-list-item
+        v-for="link in item.links"
+        ripple
+        :key="link.text"
+        :to="link.route ? { name: link.route } : undefined"
+      >
+        <v-list-item-content>
+          <v-list-item-title v-text="link.text"></v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      lists: [{
+        header: "Quản lý tài khoản",
+        links: [
+          {
+            text: "Thông tin tài khoản",
+            route: "user-infor"
+          },
+          {
+            text: "Đổi mật khẩu",
+            route: "user-password",
+          },
+          {
+            text: "Mã giảm giá của bạn",
+            route: ""
+          },
+          {
+            text: "Hỏi đáp",
+            route: ""
+          }
+        ]
+      },
+      {
+        header: "Quản lý đơn hàng",
+        links: [
+          {
+            text: "Sản phẩm đã mua",
+            route: "user-products"
+          },
+          {
+            text: "Địa chỉ nhận hàng",
+            route: "user-address"
+          },
+          {
+            text: "Sản phẩm yêu thích",
+            route: "user-favorite-products"
+          }
+        ]
+      }],
+    }
+  }
 }
 </script>
 

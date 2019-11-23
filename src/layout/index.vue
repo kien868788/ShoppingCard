@@ -1,12 +1,12 @@
 <template>
   <v-app>
-    <AppHeader></AppHeader>
+    <AppHeader class="sticky-top"></AppHeader>
     <div class="wrapper">
       <transition name="fade">
         <router-view></router-view>
       </transition>
     </div>
-    <AppFooter></AppFooter>
+    <AppFooter v-if="!$isAdmin"></AppFooter>
   </v-app>
 </template>
 

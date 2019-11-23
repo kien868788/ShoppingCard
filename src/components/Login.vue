@@ -52,6 +52,7 @@
                 v-model="email"
                 :rules="[rules.required, rules.email]"
               ></v-text-field>
+
               <v-text-field
                 v-model="password"
                 type="password"
@@ -86,16 +87,6 @@
               </v-alert>
               <v-row>
                 <v-col cols="3">
-                  <v-subheader class="font-weight-bold pt-6 px-0">Họ và tên<span class="red--text">&ensp;*</span></v-subheader>
-                </v-col>
-                <v-col cols="9">
-                  <v-text-field
-                    placeholder="Nhập họ tên.."
-                    v-model="resFullName"
-                    :rules="[rules.required]"
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="3">
                   <v-subheader class="font-weight-bold pt-6 px-0">Email <span class="red--text">&ensp;*</span></v-subheader>
                 </v-col>
                 <v-col cols="9">
@@ -103,16 +94,6 @@
                     placeholder="Nhập email"
                     v-model="resEmail"
                     :rules="[rules.required, rules.email]"
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="3">
-                  <v-subheader class="font-weight-bold pt-6 px-0">Số điện thoại<span class="red--text">&ensp;*</span></v-subheader>
-                </v-col>
-                <v-col cols="9">
-                  <v-text-field
-                    placeholder="Nhập số điện thoại"
-                    v-model="resPhoneNumber"
-                    :rules="[rules.required, rules.phone]"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="3">
@@ -166,6 +147,7 @@
 import * as authService from '../services/auth.service'
 import ValidationMixin from '../mixins/validation'
 import userService from '../services/users.service'
+import { mapGetters } from 'vuex'
 export default {
 
   mixins: [ValidationMixin],
@@ -184,8 +166,6 @@ export default {
 
     resEmail: "",
     resPassword: "",
-    resFullName: "",
-    resPhoneNumber: "",
     resRePassword: "",
 
     existingUserErrorMessage: undefined,
@@ -214,13 +194,21 @@ export default {
     }
   },
 
+  computed: {
+    ...mapGetters({ isAdmin : "user/isAdmin" })
+  },
+
   methods: {
     async login() {
       if (this.$refs.login.validate()) {
         try {
           await authService.makeLogin({ email: this.email , password: this.password });
           this.closeDialog();
-          this.$router.push({ name: 'user-infor' });
+          if (this.isAdmin) {
+            this.$router.push({ name: 'admin-page' })
+          } else {
+            this.$router.push({ name: 'user-infor' });
+          }
         } catch (error) {
           this.loginFailedMessage = "Đăng nhập thất bại!!";
         }
@@ -231,8 +219,6 @@ export default {
       return {
         email: this.resEmail,
         password: this.resPassword,
-        fullName: this.resFullName,
-        phoneNumber: this.resPhoneNumber
       }
     },
 
