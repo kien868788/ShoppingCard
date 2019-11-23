@@ -27,7 +27,6 @@ export default class Http {
       }, error => {
         return Promise.reject(error)
       })
-      return this.instance
 
       return this.instance
     }

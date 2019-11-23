@@ -6,7 +6,7 @@ import { getToken } from "../services/auth.service"
  * @WARN Must be always first in middleware chain
  */
 export function initCurrentUserStateMiddleware (to, from, next) {
-  const currentUserId = $store.state.user.currentUser.id
+  const currentUserId = $store.state.user.currentUser._id
 
   if (!currentUserId && getToken()) {
     return $store.dispatch("user/getCurrent")
@@ -21,11 +21,11 @@ export function initCurrentUserStateMiddleware (to, from, next) {
  * Check access permission to auth routes
  */
 export function checkAccessMiddleware (to, from, next) {
-  const currentUserId = $store.state.user.currentUser.id
+  const currentUserId = $store.state.user.currentUser._id
   const isAuthRoute = to.matched.some(item => item.meta.isAuth)
 
   if (isAuthRoute && currentUserId) return next()
-  if (isAuthRoute) return next({ name: 'login' })
+  if (isAuthRoute) return next({ name: 'index' })
   next()
 }
 

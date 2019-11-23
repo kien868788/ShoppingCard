@@ -4,6 +4,22 @@ class UsersService extends BaseService {
   get entity () {
     return 'users'
   }
+
+  isExisted(data = window.required()) {
+    return new Promise((resolve, reject) => {
+      return this.request().post(`${this.entity}/is-existed`, data)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
+
+  getCurrent() {
+    return new Promise((resolve, reject) => {
+      return this.request({ auth : true }).get(`${this.entity}/getCurrent`)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
 }
 
 export default new UsersService()

@@ -8,16 +8,49 @@
         <li class="navbar-text mr-5">
           <div class="text-danger">Hotline: 0868788245</div>
         </li>
-        <li v-for="link in links" class="nav-item">
-          <a :class="['nav-link', ...link.style]" href="#">
-            <i :class="link.iconClass"></i>
-            {{ link.text }}
-          </a>
+        <li class="nav-item">
+          <div class="nav-link">
+            <i class="far fa-newspaper"></i>
+            Thông báo
+          </div>
         </li>
+
+        <li class="nav-item">
+          <div class="nav-link">
+            <i class="fas fa-hands-helping"></i>
+            Trợ Giúp
+          </div>
+        </li>
+
+        <li class="nav-item " v-show="!$currentUser._id">
+          <div class="nav-link register clickable" @click="openLoginDialog()">
+            Đăng Ký
+          </div>
+        </li>
+
+        <li class="nav-item" v-show="!$currentUser._id">
+          <div class="nav-link clickable" @click="openLoginDialog(true)">
+            Đăng Nhập
+          </div>
+        </li>
+
+        <li class="nav-item" v-if="$currentUser._id">
+          <div class="nav-link clickable">
+            {{ `Xin chào ${$currentUser.fullName || 'bạn'}` }}
+          </div>
+        </li>
+
+        <li class="nav-item" v-if="$currentUser._id" @click="makeLogout">
+          <div class="nav-link clickable">
+            Đăng Xuất
+            <i class="fa fa-sign-out"></i>
+          </div>
+        </li>
+
       </ul>
     </nav>
 
-    <div class="navbar navbar-expand-md navbar-dark bg-light mb-0 py-0 sticky-top">
+    <div class="navbar navbar-expand-md navbar-dark bg-light mb-0 py-0 sticky-top" v-if="!isAdmin()">
       <a class="navbar-brand" href="#">
         <img src="../assets/img/logo.png" alt="logo" width="50%">
       </a>
@@ -53,43 +86,36 @@
         </form>
       </div>
     </div>
+    <login-dialog
+      :visible.sync="loginDialogVisible"
+      :default-tab="defaultLoginDialogTab"
+    >
+    </login-dialog>
   </div>
 </template>
 
 <script>
+import LoginDialog from '../components/Login';
+import { makeLogout } from "../services/auth.service";
+import { mapGetters } from 'vuex';
+
 export default {
+
+  components: {
+    LoginDialog
+  },
+
   data() {
     return {
-      links: [
-        {
-          text: "Thông báo",
-          style: [],
-          iconClass: "far fa-newspaper",
-        },
-        {
-          text: "Trợ giúp",
-          style: [],
-          iconClass: "fas fa-hands-helping",
-        },
-        {
-          text: "Ðăng ký",
-          style: ["register"],
-          iconClass: "",
-        },
-        {
-          text: "Ðăng nhập",
-          style: ["login"],
-          iconClass: "",
-        }
-      ],
-
+      makeLogout,
+      loginDialogVisible: false,
+      defaultLoginDialogTab: 'login',
       dropdowns: [
         {
           text: "ÁO NAM",
           items: [
             [
-              "ÁO SO MI NAM",
-              "Áo sơ mi hàn quốc",
+              "ÁO SO MI NAM", "Áo sơ mi hàn quốc",
               "Áo sơ mi họa tiết",
               "Áo sơ mi caro",
               "Áo sơ mi ngắn tay",
@@ -136,6 +162,14 @@ export default {
         },
       ],
     };
+  },
+
+  methods: {
+    openLoginDialog(isLogin) {
+      this.defaultLoginDialogTab = isLogin ? 'login' : 'register';
+      this.loginDialogVisible = true;
+    },
+    ...mapGetters({ isAdmin: 'user/isAdmin'}),
   },
 }
 </script>

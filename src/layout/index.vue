@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <v-app>
     <AppHeader></AppHeader>
     <div class="wrapper">
       <transition name="fade">
@@ -7,7 +7,7 @@
       </transition>
     </div>
     <AppFooter></AppFooter>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -24,6 +24,10 @@ export default {
 </script>
 
 <style lang="stylus">
+@import "../assets/css/grid_item.css"
+@import "../assets/css/home.css"
+@import "../assets/css/info_user.css"
+@import "../assets/css/detail.css"
 .clickable
   cursor pointer
 </style>
