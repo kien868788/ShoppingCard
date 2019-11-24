@@ -203,11 +203,16 @@ export default {
 
   watch: {
     visible(val) {
-      if (val) {
-        this.clearInput();
-        this.clearNotification();
-        this.init();
+      if (!val) {
+        setTimeout(() => {
+          this.clearInput();
+          this.clearNotification();
+        }, 200)
       }
+    },
+
+    product() {
+      this.init();
     }
   },
 
