@@ -130,7 +130,7 @@
 </template>
 
 <script>
-import { API_URL } from '@/.env'
+import { IMAGE_URL, API_URL } from '@/.env'
 import ValidationMixin from '../../mixins/validation'
 import FormMixin from '../../mixins/form'
 import productService from '../../services/products.service'
@@ -151,7 +151,7 @@ export default {
     initImages() {
       return this.product.images
         .map(image => ({
-          source: image,
+          source: image._id,
           options: {
             type: 'local'
           }
@@ -161,6 +161,7 @@ export default {
 
   data() {
     return {
+      imageIds: [],
       serverConfig: {
         process: {
           url: `${API_URL}/image/upload`,
@@ -168,14 +169,14 @@ export default {
           withCredentials: false,
           headers: {},
           timeout: 7000,
-          onload: response => JSON.parse(response).data
+          onload: this.onloadImage
         },
 
         load: async (source, load, error, progress, abort) => {
           let blobObject;
 
           try {
-            const resp =  await $axios.get(`${API_URL}/image/${source}`, { responseType: 'blob' });
+            const resp =  await $axios.get(`${API_URL}/image/${source}`, { responseType: "blob" });
             blobObject = resp.data;
           } catch (e) {
             error("Can't get image");
@@ -218,6 +219,13 @@ export default {
 
   methods: {
 
+    onloadImage(response) {
+      let vm = this;
+      const _id = JSON.parse(response).data._id;
+      vm.imageIds.push(_id);
+      return _id;
+    },
+
     async add() {
       if (!this.$refs.form.validate()) {
         return;
@@ -245,8 +253,16 @@ export default {
     },
 
     removeImage(error, file) {
-      console.log(error);
-      console.log(file);
+      if (error) {
+        this.showErrorMessage("Thêm sản phẩm thất bại!!")
+        return;
+      }
+
+      const { serverId: imageId } = file;
+
+      const imageIndex = this.imageIds.indexOf(imageId);
+
+      this.imageIds.splice(imageIndex, 1);
     },
 
 
@@ -263,7 +279,7 @@ export default {
         price: this.price,
         discountPrice: this.discountPrice || 0,
         amounts: this.amounts,
-        images: this.$refs.filepond.getFiles().map(file => file.serverId)
+        images: this.imageIds
       }
     },
 
@@ -273,6 +289,7 @@ export default {
       this.price = this.product.price || 0;
       this.discountPrice = this.product.discountPrice || 0;
       this.amounts = this.product.amounts || 0;
+      this.imageIds = this.product.images && [...this.product.images.map(image => image._id)];
     }
   },
 }
