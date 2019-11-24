@@ -51,9 +51,9 @@
     </nav>
 
     <div class="navbar navbar-expand-md navbar-dark bg-light mb-0 py-0 sticky-top" v-if="!isAdmin()">
-      <a class="navbar-brand" href="#">
+      <router-link class="navbar-brand" :to="{ name: 'index' }">
         <img src="../assets/img/logo.png" alt="logo" width="50%">
-      </a>
+      </router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon bg-secondary"></span>
       </button>

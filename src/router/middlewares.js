@@ -5,13 +5,17 @@ import { getToken } from "../services/auth.service"
  * Current user state initialization
  * @WARN Must be always first in middleware chain
  */
-export function initCurrentUserStateMiddleware (to, from, next) {
+export async function initCurrentUserStateMiddleware (to, from, next) {
   const currentUserId = $store.state.user.currentUser._id
 
   if (!currentUserId && getToken()) {
-    return $store.dispatch("user/getCurrent")
-      .then(() => next())
-      .catch(error => console.log(error))
+    try {
+      await $store.dispatch("user/getCurrent")
+      await $store.dispatch("cart/getCartData")
+      next();
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   next()
