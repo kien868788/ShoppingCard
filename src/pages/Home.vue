@@ -51,7 +51,7 @@ export default {
   methods: {
     async init() {
       const resp = await productService.getAll();
-      this.products = resp.data;
+      this.products = resp.data.products;
     },
   }
 }
