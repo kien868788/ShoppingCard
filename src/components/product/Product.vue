@@ -2,8 +2,8 @@
   <div class="product-grid">
     <div class="product-image">
       <a href="#">
-        <img class="pic-1" :src="$getImageUrl(product.images[0])">
-        <img class="pic-2" v-if="product.images[1]" :src="$getImageUrl(product.images[1])">
+        <img class="pic-1" :src="$getImageUrl(product.images[0].image_path)">
+        <img class="pic-2" v-if="product.images[1]" :src="$getImageUrl(product.images[1].image_path)">
       </a>
       <span class="product-new-label" v-if="isSale">Sale</span>
     </div>
