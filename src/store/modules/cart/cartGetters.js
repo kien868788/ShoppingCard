@@ -1,3 +1,3 @@
 export default {
-  isAdmin: state => state.currentUser.role === 1
+  products: state => state.cartItems.map(cartItem => cartItem.product)
 }

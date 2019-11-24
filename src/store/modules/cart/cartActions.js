@@ -4,7 +4,7 @@ import cartItemsService from '@/services/cart-items.service'
 export default {
   getCartData ({ commit }) {
     return cartItemsService.getAll()
-      .then(respoesn => commit('SET_CART_DATA', response.data))
+      .then(response => commit('SET_CART_DATA', response.data))
       .catch(error => commit('toast/NEW', { type: 'error', message: error.message }, { root: true }))
   },
 
