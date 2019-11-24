@@ -46,16 +46,12 @@ export default {
         header: "Quản lý đơn hàng",
         links: [
           {
-            text: "Sản phẩm đã mua",
+            text: "Tình trạng đơn hàng",
             route: "user-products"
           },
           {
             text: "Địa chỉ nhận hàng",
             route: "user-address"
-          },
-          {
-            text: "Sản phẩm yêu thích",
-            route: "user-favorite-products"
           }
         ]
       }],

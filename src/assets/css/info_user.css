@@ -136,14 +136,15 @@
     position: relative;
     background: #dceafa;
     margin: 20px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
 }
 .info-user .address .address-info .edit-address{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     cursor: pointer;
+    color: red;
 }
 .info-user .address .button-address{
     width: 150px;

@@ -28,6 +28,22 @@ class UsersService extends BaseService {
         .catch(error => reject(this.errorWrapper(error)))
     })
   }
+
+  removeShippingAddress(data) {
+    return new Promise((resolve, reject) => {
+      return this.request({ auth : true }).put(`${this.entity}/remove-shipping-address`, data)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
+
+  addShippingAddress(data) {
+    return new Promise((resolve, reject) => {
+      return this.request({ auth : true }).put(`${this.entity}/add-shipping-address`, data)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
 }
 
 export default new UsersService()

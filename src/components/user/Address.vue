@@ -3,53 +3,64 @@
     <h5>Địa chỉ nhận hàng</h5>
     <hr>
     <div>
-      <div class="address-info" >
-        <p class="address-info-name">Nguyễn Ngọc thành</p>
-        <p class="address-info-address">124 Nguyễn Lương Bằng, Hòa Khánh Bắc, Liên Chiểu, Đà Nẵng</p>
-        Điện thoại: <span class="address-info-phone">0123456789</span>
-        <i class="fas fa-edit edit-address"></i>
-      </div>
-      <div class="form-add-address hide">
-        <div class="row">
-          <div class="col-4">Họ và tên đệm</div>
-          <input type="text" class="col-8" placeholder="Họ và tên đệm">
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-4">Tên</div>
-          <input type="text" class="col-8" placeholder="Tên">
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-4" >Địa chỉ</div>
-          <input class="col-8"type="text" placeholder="Địa chỉ chi tiết">
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-4">Số điện thoại</div>
-          <input class="col-8" type="text" placeholder="Số điện thoại">
-        </div>
-        <br>
-        <div class="row button">
-          <div class="col-6">
-            <button class="add-address button-address">Lưu thông tin</button>
-          </div>
-          <div class="col-6">
-            <button class="cancel-address button-address">Hủy</button>
-          </div>
+      <div class="list-address" v-for="address in addresses">
+        <div class="address-info" >
+          <p class="address-info-name">{{ $currentUser.fullName }}</p>
+          <p class="address-info-address">{{ address }}</p>
+          Điện thoại: <span class="address-info-phone">{{ $currentUser.phoneNumber }}</span>
+          <span @click="removeShippingAddress(address)"><i class="fas fa-trash edit-address"></i></span>
         </div>
       </div>
-      <button class="button-add-address show"><i class="fas fa-plus"></i> Thêm địa chỉ</button>
+      <v-alert type="error" :value="!!errorMessage" dense outlined> {{ errorMessage }}</v-alert>
+      <v-text-field
+        placeholder="Nhập địa chỉ ship mới"
+        v-model="newShippingAddress"
+        @keyup.enter.native="addShippingAddress()"
+      ></v-text-field>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-name: "Address"
-}
+  import userService from '../../services/users.service'
+  export default {
+    data () {
+      return {
+        addresses: [],
+        errorMessage: undefined,
+        newShippingAddress: ''
+      }
+    },
+
+    methods: {
+      init() {
+        this.addresses = this.$currentUser.shippingAddresses
+      },
+      async removeShippingAddress(address) {
+        try {
+         let res = await userService.removeShippingAddress({shippingAddress: address})
+          this.addresses = res.data
+        } catch (error) {
+          this.errorMessage = 'Thêm đại chỉ ship thất bại !!';
+        }
+      },
+
+      async addShippingAddress() {
+        try {
+          let res = await userService.addShippingAddress({shippingAddress: this.newShippingAddress})
+          this.addresses = res.data
+          this.newShippingAddress = ''
+        } catch (error) {
+          this.errorMessage = 'Thêm địa chỉ ship thất bại !!';
+        }
+      }
+    },
+
+    mounted() {
+      this.init();
+    }
+  }
 </script>
 
 <style scoped>
-
 </style>

@@ -2,14 +2,14 @@
   <div class="product-grid">
     <div class="product-image">
       <a href="#">
-        <img class="pic-1" :src="product.images[0]">
-        <img class="pic-2" v-if="product.images[1]" :src="product.images[1]">
+        <img class="pic-1" :src="$getImageUrl(product.images[0].image_path)">
+        <img class="pic-2" v-if="product.images[1]" :src="$getImageUrl(product.images[1].image_path)">
       </a>
       <ul class="social">
         <li><a href="" data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
       </ul>
       <span class="product-new-label">Sale</span>
-      <span class="product-discount-label">20%</span>
+      <span class="product-discount-label">{{ product.discount * 100 }}%</span>
     </div>
     <ul class="rating">
       <li class="fa fa-star"></li>
@@ -27,7 +27,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   props: {
