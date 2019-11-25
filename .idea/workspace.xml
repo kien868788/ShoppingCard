@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f321b0-5631-41dd-87d3-676b6775ef89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mixins/formatTime.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mixins/image.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/orders.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/.env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/info_user.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/info_user.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product/Product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product/Product.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/Address.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/Address.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/Products.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/Products.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/SideBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/SideBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mixins/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/category.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/AddProductDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AddProductDialog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/Products.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/Products.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mixins/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mixins/image.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mixins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mixins/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/users.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mixins/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mixins/validation.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mixins/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+            <state relative-caret-position="171">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#42#63#0" expanded="true" />
               </folding>
@@ -144,7 +139,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/.env.js" />
-        <option value="$PROJECT_DIR$/src/mixins/image.js" />
         <option value="$PROJECT_DIR$/src/components/product/Product.vue" />
         <option value="$PROJECT_DIR$/src/layout/Header.vue" />
         <option value="$PROJECT_DIR$/src/services/products.service.js" />
@@ -158,8 +152,9 @@
         <option value="$PROJECT_DIR$/src/components/user/Address.vue" />
         <option value="$PROJECT_DIR$/src/services/orders.service.js" />
         <option value="$PROJECT_DIR$/src/mixins/formatTime.js" />
-        <option value="$PROJECT_DIR$/src/mixins/index.js" />
         <option value="$PROJECT_DIR$/src/components/user/Products.vue" />
+        <option value="$PROJECT_DIR$/src/mixins/image.js" />
+        <option value="$PROJECT_DIR$/src/mixins/index.js" />
       </list>
     </option>
   </component>
@@ -267,12 +262,12 @@
       <updated>1574563823448</updated>
       <workItem from="1574563824915" duration="4331000" />
       <workItem from="1574574754270" duration="2850000" />
-      <workItem from="1574601387386" duration="12863000" />
+      <workItem from="1574601387386" duration="14240000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20044000" />
+    <option name="totallyTimeSpent" value="21421000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1052" extended-state="6" />
@@ -452,8 +447,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mixins/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        <state relative-caret-position="171">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#42#63#0" expanded="true" />
           </folding>

@@ -76,7 +76,7 @@
         </v-tab-item>
         <v-tab-item value="register" >
           <v-form ref="register">
-            <v-container grid-list-xs fluid class="ma-0 pa-0">
+            <v-container fluid class="ma-0 pa-0">
               <v-alert
                 type="error"
                 dense
