@@ -1,36 +1,40 @@
 <template>
   <div class="product-grid">
     <div class="product-image">
-      <a href="#">
+      <router-link :to="{ name: 'product-detail-page', params: { id: product._id }}">
         <img class="pic-1" :src="$getImageUrl(product.images[0].image_path)">
         <img class="pic-2" v-if="product.images[1]" :src="$getImageUrl(product.images[1].image_path)">
-      </a>
-      <ul class="social">
-        <li><a href="" data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
-      </ul>
-      <span class="product-new-label">Sale</span>
-      <span class="product-discount-label">{{ product.discount * 100 }}%</span>
+      </router-link>
+      <span class="product-new-label" v-if="isSale">Sale</span>
     </div>
-    <ul class="rating">
-      <li class="fa fa-star"></li>
-      <li class="fa fa-star"></li>
-      <li class="fa fa-star"></li>
-      <li class="fa fa-star"></li>
-      <li class="fa fa-star disable"></li>
-    </ul>
+
     <div class="product-content">
-      <h3 class="title"><a href="#">{{ product.name }}</a></h3>
-      <div class="price">{{ `$${ product.discountPrice }`}}
+      <h3 class="title">
+        <router-link :to="{ name: 'product-detail-page', params: { id: product._id }}">{{ product.name }}</router-link>
+      </h3>
+      <div class="price" v-if="isSale">
+        {{ `$${ product.discountPrice }`}}
         <span>{{ `$${ product.price }`}}</span>
+      </div>
+
+      <div v-else class="price">
+        {{ `$${ product.price }` }}
       </div>
       <a class="add-to-cart" href="">+ Add To Cart</a>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   props: {
     product: Object
+  },
+
+  computed: {
+    isSale() {
+      return this.product.discountPrice > 0 && this.product.price > this.product.discountPrice;
+    }
   },
 
   data() {
