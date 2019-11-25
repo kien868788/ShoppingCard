@@ -13,6 +13,13 @@ class CategoryService extends BaseService {
     })
   }
 
+  remove(data) {
+    return new Promise((resolve, reject) => {
+      return this.request({ auth : true }).delete(`${this.entity}/${data}`)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
 }
 
 export default new CategoryService();

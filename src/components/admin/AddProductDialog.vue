@@ -47,13 +47,15 @@
                     <v-subheader class="font-weight-bold pt-6 px-0">Thể loại<span class="red--text">&ensp;*</span></v-subheader>
                   </v-col>
                   <v-col cols="9">
-                    <v-autocomplete
-                      :items="categories"
+                    <v-text-field
+                      placeholder="Nhập tên thể loại"
                       v-model="category"
-                      item-text="name"
-                      item-value="name"
                       :rules="[rules.required]"
-                    ></v-autocomplete>
+                      list="list-parent"
+                    ></v-text-field>
+                    <datalist id="list-parent" style="width: 100%">
+                      <option class="form-control" v-for="category in categories">{{ category.name }}</option>
+                    </datalist>
                   </v-col>
                 </v-row>
 
