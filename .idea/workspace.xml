@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f321b0-5631-41dd-87d3-676b6775ef89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/cart-items.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/modules/cart/cartActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/modules/cart/cartGetters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/modules/cart/cartMutations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/modules/cart/cartState.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/modules/cart/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AddProductDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AddProductDialog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product/Product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product/Product.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mixins/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mixins/image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ProductDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProductDetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/middlewares.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/modules/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="84f321b0-5631-41dd-87d3-676b6775ef89" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="950">
+            <state relative-caret-position="969">
               <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
               <folding>
                 <element signature="e#831#882#0" expanded="true" />
@@ -258,16 +243,17 @@
       <workItem from="1574574754270" duration="2850000" />
       <workItem from="1574601387386" duration="14240000" />
       <workItem from="1574674874449" duration="949000" />
+      <workItem from="1574675842253" duration="118000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22370000" />
+    <option name="totallyTimeSpent" value="22488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1052" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24946581" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25213677" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -282,7 +268,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3762162" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3772973" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -454,7 +440,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
+        <state relative-caret-position="969">
           <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
           <folding>
             <element signature="e#831#882#0" expanded="true" />
