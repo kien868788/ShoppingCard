@@ -44,6 +44,14 @@ class UsersService extends BaseService {
         .catch(error => reject(this.errorWrapper(error)))
     })
   }
+
+  updatePassword(data) {
+    return new Promise((resolve, reject) => {
+      return this.request({ auth : true }).put(`${this.entity}/update-password`, data)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
 }
 
 export default new UsersService()

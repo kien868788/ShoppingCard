@@ -4,16 +4,14 @@
     <hr>
     <div class="input-pass">
       <v-text-field
-        placeholder="Mật khẩu củ"
+        placeholder="Mật khẩu cũ"
         type="password"
-        :rules="[rules.required]"
         v-model="oldPassword"
       >
       </v-text-field>
       <v-text-field
         placeholder="Mật khẩu mới"
         type="password"
-        :rules="[rules.required]"
         v-model="newPassword"
       >
       </v-text-field>
@@ -22,21 +20,23 @@
         type="password"
         v-model="reNewPassword"
         :rules="[
-          rules.required,
-          v => (v && v === newPassword) || 'Mật khẩu xác nhận sai!!!',
+          v => (v === newPassword) || 'Mật khẩu xác nhận sai!!!',
         ]"
       >
       </v-text-field>
-      <input class="pass" type="text" placeholder="Mật khẩu mới">
-      <input class="pass" type="text" placeholder="Xác nhận mật khẩu">
       <br>
-      <button class="button-change-pass">Xác nhận</button>
+      <v-alert type="error" :value="!!errorMessage" dense outlined> {{ errorMessage }}</v-alert>
+      <v-alert type="success" :value="!!successMessage" dense outlined> {{ successMessage }}</v-alert>
+      <v-row justify="center">
+        <button @click="updatePassword()" class="col-8 btn-danger btn-block">Cập nhật</button>
+      </v-row>
     </div>
   </div>
 </template>
 
 <script>
 import ValidateMixin from '@/mixins/validation';
+import userService from '../../services/users.service'
 
 export default {
   mixins: [ValidateMixin],
@@ -44,7 +44,36 @@ export default {
     return {
       oldPassword: '',
       newPassword: '',
-      reNewPassword: ''
+      reNewPassword: '',
+      errorMessage: undefined,
+      successMessage: undefined
+    }
+  },
+
+  methods: {
+    async updatePassword() {
+      let isSuccess = false
+      try {
+        if (this.newPassword == this.reNewPassword) {
+          let res = await userService.updatePassword({ oldPassword: this.oldPassword, newPassword: this.newPassword})
+          if (res.status == 200) {
+            isSuccess = true
+          }
+        }
+      } catch(error) {
+
+      }
+      if (isSuccess) {
+        this.successMessage = "Update password thành công !!!"
+        setTimeout(()=> this.successMessage = undefined, 3000)
+      } else {
+        this.errorMessage = "Update password không thành công !!!"
+        setTimeout(()=> this.errorMessage = undefined, 3000)
+      }
+
+      this.oldPassword = ''
+      this.newPassword = ''
+      this.reNewPassword = ''
     }
   }
 }
