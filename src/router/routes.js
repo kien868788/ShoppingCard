@@ -11,6 +11,7 @@ import UserFavoriteProducts from '../components/user/FavoriteProducts'
 
 import AdminPage from '../pages/Admin'
 import AdminProducts from '../components/admin/Products'
+import AdminCategories from '../components/admin/Categories'
 
 
 import ProductDetailPage from '../pages/ProductDetail'
@@ -73,6 +74,11 @@ export const routes = [
         path: 'products',
         name: 'admin-products',
         component: AdminProducts
+      },
+      {
+        path: 'categories',
+        name: 'admin-categories',
+        component: AdminCategories
       }
     ]
   },
