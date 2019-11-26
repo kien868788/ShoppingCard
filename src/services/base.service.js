@@ -89,7 +89,7 @@ export default class BaseService {
 
   update (id = window.required(), data = window.required()) {
     return new Promise((resolve, reject) => {
-      return this.request({ auth: true }).patch(`${this.entity}/${id}`, data)
+      return this.request({ auth: true }).put(`${this.entity}/${id}`, data)
         .then(response => resolve(this.responseWrapper(response, response.data.data)))
         .catch(error => reject(this.errorWrapper(error)))
     })

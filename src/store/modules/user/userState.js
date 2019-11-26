@@ -1,8 +1,10 @@
 export default {
   currentUser: {
-    id: '',
-    role: '',
+    _id: '',
     name: '',
-    email: ''
+    email: '',
+    phoneNumber: '',
+    fullName: '',
+    role: 3,
   }
 }

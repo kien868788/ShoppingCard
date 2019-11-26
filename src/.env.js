@@ -1,4 +1,4 @@
 export const API_PORT = '3000'
-export const API_URL = `http://localhost:${API_PORT}`
-export const DOMAIN_TITLE = 'shoppingcard.com'
-
+export const API_URL = `http://localhost:${API_PORT}/api/v1.0.0`
+export const DOMAIN_TITLE = 'Shop Men'
+export const IMAGE_URL = `http://localhost:${API_PORT}/`
