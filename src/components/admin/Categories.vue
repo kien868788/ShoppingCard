@@ -14,7 +14,7 @@
           >
           </v-divider>
           <v-spacer></v-spacer>
-          <v-btn color="success" @click="addDialogVisible = true"> Thêm thể loại</v-btn>
+          <v-btn color="success" @click="newCategory()"> Thêm thể loại</v-btn>
         </v-toolbar>
       </template>
 
@@ -38,6 +38,8 @@
     <add-category-dialog
       :visible.sync="addDialogVisible"
       :categories="categories"
+      :category="editedCategory"
+      :isEditing="isEditing"
       @save="fetCategories"
     >
     </add-category-dialog>
@@ -50,17 +52,6 @@
   export default {
     components: {
       AddCategoryDialog
-    },
-
-    watch: {
-      addDialogVisible(val) {
-        if (!val) {
-          setTimeout(() => {
-            this.editCategory = Object.assign({}, this.defaultCategory)
-            this.isEditing = false;
-          }, 300)
-        }
-      }
     },
 
     data() {
@@ -106,8 +97,13 @@
 
       editCategory (item) {
         this.isEditing = true;
-        this.editCategory = Object.assign({}, item)
+        this.editedCategory = Object.assign({}, item)
         this.addDialogVisible = true;
+      },
+
+      newCategory() {
+        this.isEditing = false;
+        this.addDialogVisible = true
       },
 
       async deleteCategory ({ _id }) {

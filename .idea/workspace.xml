@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="84f321b0-5631-41dd-87d3-676b6775ef89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/admin/AddProductDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AddProductDialog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Admin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/category.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/category.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/AddCategoryDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/AddCategoryDialog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin/Categories.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin/Categories.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +22,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/admin/Categories.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+            <state relative-caret-position="1007">
+              <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/admin/AddCategoryDialog.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-272">
+              <caret line="114" column="29" lean-forward="true" selection-start-line="114" selection-start-column="29" selection-end-line="114" selection-end-column="29" />
+              <folding>
+                <element signature="n#style#0;n#datalist#0;n#v-col#1;n#v-row#1;n#v-form#0;n#v-container#0;n#v-row#0;n#v-container#0;n#v-card-actions#0;n#v-card#0;n#v-dialog#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,22 +50,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/admin/AddProductDialog.vue">
+        <entry file="file://$PROJECT_DIR$/node_modules/eslint-plugin-vue/lib/rules/html-self-closing.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-              <folding>
-                <element signature="n#style#0;n#datalist#0;n#v-col#1;n#v-row#1;n#v-form#0;n#v-container#0;n#v-row#1;n#v-container#0;n#v-card-actions#0;n#v-card#0;n#v-dialog#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="2052">
+              <caret line="108" column="14" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/category.service.js">
+        <entry file="file://$PROJECT_DIR$/src/components/admin/AddProductDialog.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+            <state relative-caret-position="2546">
+              <caret line="134" column="7" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#datalist#0;n#v-col#1;n#v-row#1;n#v-form#0;n#v-container#0;n#v-row#1;n#v-container#0;n#v-card-actions#0;n#v-card#0;n#v-dialog#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#4338#4381#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,17 +74,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/user/Address.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="50" lean-forward="true" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+            <state relative-caret-position="247">
+              <caret line="13" column="43" selection-start-line="13" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/orders.service.js">
+        <entry file="file://$PROJECT_DIR$/src/components/user/Password.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="41" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="41" />
+            <state relative-caret-position="1311">
+              <caret line="70" column="25" selection-start-line="70" selection-end-line="71" />
             </state>
           </provider>
         </entry>
@@ -81,38 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/admin/Products.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/Admin.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="931">
-              <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/router/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/admin/AddCategoryDialog.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="137" column="35" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
-              <folding>
-                <element signature="n#style#0;n#datalist#0;n#v-col#1;n#v-row#1;n#v-form#0;n#v-container#0;n#v-row#0;n#v-container#0;n#v-card-actions#0;n#v-card#0;n#v-dialog#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="1064">
+              <caret line="58" column="20" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -148,6 +129,13 @@
       <find>editProduct</find>
       <find>add</find>
       <find>showErrorMessage</find>
+      <find>product</find>
+      <find>editCategory</find>
+      <find>editedProduct</find>
+      <find>visible</find>
+      <find>clearNotification</find>
+      <find>clearInput</find>
+      <find>addDialogVisible</find>
       <find>showSuccessMessage</find>
     </findStrings>
     <replaceStrings>
@@ -181,8 +169,8 @@
         <option value="$PROJECT_DIR$/src/pages/Admin.vue" />
         <option value="$PROJECT_DIR$/src/router/routes.js" />
         <option value="$PROJECT_DIR$/src/services/category.service.js" />
-        <option value="$PROJECT_DIR$/src/components/admin/Categories.vue" />
         <option value="$PROJECT_DIR$/src/components/admin/AddProductDialog.vue" />
+        <option value="$PROJECT_DIR$/src/components/admin/Categories.vue" />
         <option value="$PROJECT_DIR$/src/components/admin/AddCategoryDialog.vue" />
       </list>
     </option>
@@ -302,18 +290,41 @@
       <workItem from="1574674874449" duration="949000" />
       <workItem from="1574675842253" duration="118000" />
       <workItem from="1574682876382" duration="4219000" />
-      <workItem from="1574695782314" duration="4875000" />
+      <workItem from="1574695782314" duration="5715000" />
+      <workItem from="1574738154260" duration="2306000" />
+      <workItem from="1574745157614" duration="525000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36683000" />
+    <option name="totallyTimeSpent" value="40354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1052" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.030448718" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.030448718" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50106835" side_tool="true" weight="0.3264865" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49893162" visible="true" weight="0.32540542" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.030448718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -333,21 +344,10 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/admin/Products.vue</url>
-          <line>53</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/.env.js">
@@ -500,16 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/Password.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-          <folding>
-            <element signature="e#914#962#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/vuetify/dist/vuetify.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -524,17 +514,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/category.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/orders.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="41" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/admin/Products.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -552,10 +542,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/category.service.js">
+    <entry file="file://$PROJECT_DIR$/src/components/admin/Categories.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        <state relative-caret-position="1007">
+          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/eslint-plugin-vue/lib/rules/html-self-closing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2052">
+          <caret line="108" column="14" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/admin/AddProductDialog.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2546">
+          <caret line="134" column="7" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#datalist#0;n#v-col#1;n#v-row#1;n#v-form#0;n#v-container#0;n#v-row#1;n#v-container#0;n#v-card-actions#0;n#v-card#0;n#v-dialog#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#4338#4381#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/user/Address.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="43" selection-start-line="13" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/user/Password.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1311">
+          <caret line="70" column="25" selection-start-line="70" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/admin/Products.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1064">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -566,34 +595,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/admin/Categories.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/Address.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="50" lean-forward="true" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/admin/AddProductDialog.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#datalist#0;n#v-col#1;n#v-row#1;n#v-form#0;n#v-container#0;n#v-row#1;n#v-container#0;n#v-card-actions#0;n#v-card#0;n#v-dialog#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/admin/AddCategoryDialog.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="137" column="35" selection-start-line="137" selection-start-column="35" selection-end-line="137" selection-end-column="35" />
+        <state relative-caret-position="-272">
+          <caret line="114" column="29" lean-forward="true" selection-start-line="114" selection-start-column="29" selection-end-line="114" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#datalist#0;n#v-col#1;n#v-row#1;n#v-form#0;n#v-container#0;n#v-row#0;n#v-container#0;n#v-card-actions#0;n#v-card#0;n#v-dialog#0;n#template#0;n#!!top" expanded="true" />
           </folding>

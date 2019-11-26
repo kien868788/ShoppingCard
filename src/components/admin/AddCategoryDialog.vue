@@ -48,24 +48,8 @@
 
               </v-form>
 
-              <v-alert
-                type="success"
-                dense
-                :value="!!successMessage"
-                outlined
-              >
-                {{ successMessage }}
-              </v-alert>
-
-              <v-alert
-                type="error"
-                dense
-                :value="!!errorMessage"
-                outlined
-              >
-                {{ errorMessage }}
-              </v-alert>
-
+              <v-alert type="success" :value="!!successMessage" dense outlined> {{ successMessage }}</v-alert>
+              <v-alert type="error" :value="!!errorMessage" dense outlined> {{ errorMessage }}</v-alert>
 
               <v-row justify="center">
                 <v-btn color="success" @click="add" min-width="300">{{ isEditing ? 'Chỉnh sửa' : 'Thêm' }}</v-btn>
@@ -92,6 +76,7 @@ export default {
     visible: Boolean,
     isEditing: Boolean,
     categories: Array,
+    category: Object
   },
 
   data() {
@@ -106,7 +91,7 @@ export default {
       if (!val) {
         setTimeout(() => {
           this.clearInput();
-          this.clearNotification();
+          this.clearMessage();
         }, 200)
       }
     },
@@ -125,29 +110,33 @@ export default {
 
       if (this.isEditing) {
         try {
-          // await productService.update(this.product._id, this.getBuiltItem());
-          this.showSuccessMessage("Chỉnh sửa sản phẩm thành công!!")
+          await categoryService.update(this.category._id, this.getBuiltItem());
+          this.showSuccessMessage("Chỉnh sửa thể loại thành công!!")
           this.$emit('save');
         } catch (e) {
-          this.showErrorMessage("Chỉnh sửa sản phẩm thất bại!!")
+          this.showErrorMessage("Chỉnh sửa thể loại thất bại!!")
         }
-        return;
+      } else {
+        try {
+          await categoryService.create(this.getBuiltItem());
+          this.showSuccessMessage("Thêm thể loại thành công!!")
+          this.$emit('save');
+          this.clearInput();
+        } catch (e) {
+          this.showErrorMessage("Thêm thể loại thất bại!!")
+        }
       }
-
-      try {
-        await categoryService.create(this.getBuiltItem());
-        this.showSuccessMessage("Thêm sản phẩm thành công!!")
-        this.$emit('save');
-        this.clearInput();
-      } catch (e) {
-        this.showErrorMessage("Thêm sản phẩm thất bại!!")
-      }
+      this.clearMessage()
     },
 
     closeDialog() {
       this.$emit('update:visible', false);
     },
 
+    clearMessage() {
+      setTimeout(()=> this.successMessage = undefined, 3000)
+      setTimeout(()=> this.errorMessage = undefined, 3000)
+    },
 
     getBuiltItem() {
       return {
