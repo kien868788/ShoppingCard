@@ -45,6 +45,11 @@ export default {
     return {
       items: [
         {
+          title: 'Dashboard',
+          icon: 'mdi-view-dashboard',
+          route: 'admin-dashboard'
+        },
+        {
           title: 'Thể loại',
           icon: 'mdi-view-dashboard',
           route: 'admin-categories'

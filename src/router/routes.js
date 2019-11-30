@@ -12,6 +12,7 @@ import UserFavoriteProducts from '../components/user/FavoriteProducts'
 import AdminPage from '../pages/Admin'
 import AdminProducts from '../components/admin/Products'
 import AdminCategories from '../components/admin/Categories'
+import AdminDashboard from '../components/admin/Dashboard'
 
 
 import ProductDetailPage from '../pages/ProductDetail'
@@ -70,6 +71,11 @@ export const routes = [
     component: AdminPage,
     meta: { title: `${DOMAIN_TITLE} | Quản lý `, isAuth: true },
     children: [
+      {
+        path: 'dashboard',
+        name: 'admin-dashboard',
+        component: AdminDashboard
+      },
       {
         path: 'products',
         name: 'admin-products',
