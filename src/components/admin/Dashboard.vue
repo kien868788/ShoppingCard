@@ -125,65 +125,6 @@
                         </span>
                   </div>
                 </li>
-<!--                <li class="item">-->
-<!--                  <div class="product-img">-->
-<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
-<!--                  </div>-->
-<!--                  <div class="product-info">-->
-<!--                    <a href="" class="product-title">Bicycle-->
-<!--                      <span class="label label-info pull-right">$700</span></a>-->
-<!--                    <span class="product-description">-->
-<!--                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.-->
-<!--                        </span>-->
-<!--                  </div>-->
-<!--                </li>-->
-<!--                <li class="item">-->
-<!--                  <div class="product-img">-->
-<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
-<!--                  </div>-->
-<!--                  <div class="product-info">-->
-<!--                    <a href="" class="product-title">Xbox One <span class="label label-danger pull-right">$350</span></a>-->
-<!--                    <span class="product-description">-->
-<!--                          Xbox One Console Bundle with Halo Master Chief Collection.-->
-<!--                        </span>-->
-<!--                  </div>-->
-<!--                </li>-->
-<!--                <li class="item">-->
-<!--                  <div class="product-img">-->
-<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
-<!--                  </div>-->
-<!--                  <div class="product-info">-->
-<!--                    <a href="" class="product-title">PlayStation 4-->
-<!--                      <span class="label label-success pull-right">$399</span></a>-->
-<!--                    <span class="product-description">-->
-<!--                          PlayStation 4 500GB Console (PS4)-->
-<!--                        </span>-->
-<!--                  </div>-->
-<!--                </li>-->
-<!--                <li class="item">-->
-<!--                  <div class="product-img">-->
-<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
-<!--                  </div>-->
-<!--                  <div class="product-info">-->
-<!--                    <a href="" class="product-title">Samsung TV-->
-<!--                      <span class="label label-warning pull-right">$1800</span></a>-->
-<!--                    <span class="product-description">-->
-<!--                          Samsung 32" 1080p 60Hz LED Smart HDTV.-->
-<!--                        </span>-->
-<!--                  </div>-->
-<!--                </li>-->
-<!--                <li class="item">-->
-<!--                  <div class="product-img">-->
-<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
-<!--                  </div>-->
-<!--                  <div class="product-info">-->
-<!--                    <a href="" class="product-title">Bicycle-->
-<!--                      <span class="label label-info pull-right">$700</span></a>-->
-<!--                    <span class="product-description">-->
-<!--                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.-->
-<!--                        </span>-->
-<!--                  </div>-->
-<!--                </li>-->
               </ul>
             </div>
           </div>
