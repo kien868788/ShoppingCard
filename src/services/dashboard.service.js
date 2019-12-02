@@ -1,11 +1,11 @@
 import BaseService from './base.service'
 
 class DashboardService extends BaseService {
-  get entity() {
+  get entity () {
     return 'statistical'
   }
 
-  getOverview() {
+  getOverview () {
     return new Promise((resolve, reject) => {
       return this.request({ auth: true }).get(`${this.entity}/overview`)
         .then(response => resolve(this.responseWrapper(response, response.data.data)))
@@ -13,7 +13,7 @@ class DashboardService extends BaseService {
     })
   }
 
-  getLastedUsers() {
+  getLastedUsers () {
     return new Promise((resolve, reject) => {
       return this.request({ auth: true }).get(`${this.entity}/lasted-users`)
         .then(response => resolve(this.responseWrapper(response, response.data.data)))
@@ -21,9 +21,25 @@ class DashboardService extends BaseService {
     })
   }
 
-  getTopUsers() {
+  getTopUsers () {
     return new Promise((resolve, reject) => {
       return this.request({ auth: true }).get(`${this.entity}/top-users`)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
+
+  getProfitByYear (year) {
+    return new Promise((resolve, reject) => {
+      return this.request({ auth: true }).get(`${this.entity}/profit/${year}`)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
+
+  getTopProducts () {
+    return new Promise((resolve, reject) => {
+      return this.request({ auth: true }).get(`${this.entity}/hot`)
         .then(response => resolve(this.responseWrapper(response, response.data.data)))
         .catch(error => reject(this.errorWrapper(error)))
     })

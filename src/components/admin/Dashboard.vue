@@ -5,7 +5,7 @@
         <div class="info-box">
           <span class="info-box-icon bg-aqua"><i class="fas fa-user"></i></span>
 
-          <div class="info-box-content">
+          <div class="info-box-content bd-info">
             <span class="info-box-text">Tổng user</span>
             <span class="info-box-number">{{ totalUser}}</span>
           </div>
@@ -13,7 +13,7 @@
       </div>
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-          <span class="info-box-icon bg-aqua"><i class="fab fa-product-hunt"></i></span>
+          <span class="info-box-icon bg-red"><i class="fab fa-product-hunt"></i></span>
 
           <div class="info-box-content">
             <span class="info-box-text">Sản phẩm</span>
@@ -23,7 +23,7 @@
       </div>
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-          <span class="info-box-icon bg-aqua"><i class="fas fa-shopping-bag"></i></span>
+          <span class="info-box-icon bg-success"><i class="fas fa-shopping-bag"></i></span>
 
           <div class="info-box-content">
             <span class="info-box-text">Đặt hàng</span>
@@ -33,7 +33,7 @@
       </div>
       <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-          <span class="info-box-icon bg-aqua"><i class="fas fa-money-check-alt"></i></span>
+          <span class="info-box-icon bg-warning"><i class="fas fa-money-check-alt"></i></span>
 
           <div class="info-box-content">
             <span class="info-box-text">Lợi nhuận</span>
@@ -44,8 +44,18 @@
     </div>
     <div class="row">
       <div class="Chart col-md-12">
-        <h2>Doanh thu</h2>
-        <line-chart :chartData="revenue" :chartLabel="chartLabel" :firstDataLabel="firstDataLabel" :secondDataLabel="secondDataLabel"></line-chart>
+        <div class="profit-title">
+          <div>Lợi nhuận: {{ profitInYear }}</div>
+          <div>
+            <v-text-field
+              v-model="yearProfit"
+              class="year-profit"
+              @keyup.enter.native="getProfitByYear()"
+              :rules="[rules.integer]"
+            ></v-text-field>
+          </div>
+        </div>
+        <line-chart v-if="chartData && chartData.length" :chartData="chartData" :chartLabel="chartLabel" :revenueLabel="revenueLabel" :shippingFeeLabel="shippingFeeLabel"></line-chart>
       </div>
     </div>
     <div class="row">
@@ -56,13 +66,13 @@
               <h3 class="box-title">Top user</h3>
 
               <div class="box-tools pull-right">
-                <span class="label label-danger">{{ topUsers ? topUsers.length : 0}} top users</span>
+                <span class="label label-danger">Top {{ topUsers ? topUsers.length : 0}} users</span>
               </div>
             </div>
             <div class="box-body no-padding">
               <ul>
-                <carousel :autoplay="true" :nav="false" :items="4" :margin="15" v-for="topUser in topUsers">
-                  <div class="users-item">
+                <carousel :autoplay="true" :nav="false" :items="4" :margin="15" :dots="false" v-if="topUsers && topUsers.length">
+                  <div class="users-item" v-for="topUser in topUsers">
                     <img class="user-img" src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="User Image">
                     <a class="users-list-name" href="#">{{ topUser.email }}</a>
                     <span class="users-list-date">{{ topUser.numberOrder }} đơn hàng</span>
@@ -78,13 +88,13 @@
               <h3 class="box-title">User mới</h3>
 
               <div class="box-tools pull-right">
-                <span class="label label-danger">{{ lastedUsers ? lastedUsers.length : 0}}ser mới</span>
+                <span class="label label-danger">{{ lastedUsers ? lastedUsers.length : 0}} users mới</span>
               </div>
             </div>
             <div class="box-body no-padding">
               <ul>
-                <carousel :autoplay="true" :nav="false" :items="4" :margin="15" v-for="lastedUser in lastedUsers">
-                  <div class="users-item">
+                <carousel :autoplay="true" :nav="false" :items="4" :margin="15" :dots="false" v-if="lastedUsers && lastedUsers.length">
+                  <div v-for="lastedUser in lastedUsers" class="users-item">
                     <img class="user-img" src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="User Image">
                     <a class="users-list-name" href="#">{{ lastedUser.fullName }}</a>
                     <span class="users-list-date">{{ $showTime(lastedUser.createdAt) }}</span>
@@ -103,77 +113,77 @@
             </div>
             <div class="box-body">
               <ul class="products-list product-list-in-box">
-                <li class="item">
+                <li class="item" v-for="product in topProducts">
                   <div class="product-img">
-                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">
+                    <img :src="$getImageUrl(product.images[0].image_path)" alt="Product Image">
                   </div>
                   <div class="product-info">
-                    <a href="" class="product-title">Samsung TV
-                      <span class="label label-warning pull-right">$1800</span></a>
+                    <a href="" class="product-title">{{ product.name }}
+                      <span class="label label-success pull-right">{{ product.discountPrice }} vnd</span></a>
                     <span class="product-description">
                           Samsung 32" 1080p 60Hz LED Smart HDTV.
                         </span>
                   </div>
                 </li>
-                <li class="item">
-                  <div class="product-img">
-                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="" class="product-title">Bicycle
-                      <span class="label label-info pull-right">$700</span></a>
-                    <span class="product-description">
-                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                        </span>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="product-img">
-                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="" class="product-title">Xbox One <span class="label label-danger pull-right">$350</span></a>
-                    <span class="product-description">
-                          Xbox One Console Bundle with Halo Master Chief Collection.
-                        </span>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="product-img">
-                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="" class="product-title">PlayStation 4
-                      <span class="label label-success pull-right">$399</span></a>
-                    <span class="product-description">
-                          PlayStation 4 500GB Console (PS4)
-                        </span>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="product-img">
-                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="" class="product-title">Samsung TV
-                      <span class="label label-warning pull-right">$1800</span></a>
-                    <span class="product-description">
-                          Samsung 32" 1080p 60Hz LED Smart HDTV.
-                        </span>
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="product-img">
-                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="" class="product-title">Bicycle
-                      <span class="label label-info pull-right">$700</span></a>
-                    <span class="product-description">
-                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                        </span>
-                  </div>
-                </li>
+<!--                <li class="item">-->
+<!--                  <div class="product-img">-->
+<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                    <a href="" class="product-title">Bicycle-->
+<!--                      <span class="label label-info pull-right">$700</span></a>-->
+<!--                    <span class="product-description">-->
+<!--                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.-->
+<!--                        </span>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="item">-->
+<!--                  <div class="product-img">-->
+<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                    <a href="" class="product-title">Xbox One <span class="label label-danger pull-right">$350</span></a>-->
+<!--                    <span class="product-description">-->
+<!--                          Xbox One Console Bundle with Halo Master Chief Collection.-->
+<!--                        </span>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="item">-->
+<!--                  <div class="product-img">-->
+<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                    <a href="" class="product-title">PlayStation 4-->
+<!--                      <span class="label label-success pull-right">$399</span></a>-->
+<!--                    <span class="product-description">-->
+<!--                          PlayStation 4 500GB Console (PS4)-->
+<!--                        </span>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="item">-->
+<!--                  <div class="product-img">-->
+<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                    <a href="" class="product-title">Samsung TV-->
+<!--                      <span class="label label-warning pull-right">$1800</span></a>-->
+<!--                    <span class="product-description">-->
+<!--                          Samsung 32" 1080p 60Hz LED Smart HDTV.-->
+<!--                        </span>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="item">-->
+<!--                  <div class="product-img">-->
+<!--                    <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Product Image">-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                    <a href="" class="product-title">Bicycle-->
+<!--                      <span class="label label-info pull-right">$700</span></a>-->
+<!--                    <span class="product-description">-->
+<!--                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.-->
+<!--                        </span>-->
+<!--                  </div>-->
+<!--                </li>-->
               </ul>
             </div>
           </div>
@@ -187,12 +197,15 @@
   import LineChart from './LineChart.js'
   import carousel from 'vue-owl-carousel'
   import DashboardService from '../../services/dashboard.service'
+  import ValidationMixin from '../../mixins/validation'
 
   export default {
     components: {
       LineChart,
       carousel,
     },
+
+    mixins: [ValidationMixin],
 
     data () {
       return {
@@ -205,13 +218,14 @@
         datacollection: null,
         gradient: null,
         gradient2: null,
-        firstDataLabel: 'Doanh thu',
-        secondDataLabel: 'Phí giao hàng',
+        revenueLabel: 'Doanh thu',
+        shippingFeeLabel: 'Phí giao hàng',
         chartLabel: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
-        revenue: [
-          [340, 239, 110, 140, 239, 480, 240, 345, 314, 254, 360, 213],
-          [60, 55, 32, 10, 20, 12, 53, 76, 12, 13, 45, 34]
-        ]
+        profitInYear: 0,
+        chartData: [],
+        currentYear: new Date().getFullYear(),
+        yearProfit: new Date().getFullYear(),
+        topProducts: []
       }
     },
     mounted () {
@@ -221,8 +235,20 @@
     methods: {
       async loadData () {
         await this.getOverview()
+        await this.getProfitByYear()
         await this.getTopUsers()
         await this.getLastedUsers()
+        await this.getTopProducts()
+      },
+
+      async getTopProducts () {
+        try {
+          let {data: products} = await DashboardService.getTopProducts()
+          this.topProducts = products
+
+        } catch (e) {
+          console.log(e)
+        }
       },
 
       async getLastedUsers () {
@@ -255,12 +281,37 @@
         } catch (e) {
           console.log(e)
         }
-      }
+      },
+
+      async getProfitByYear () {
+        try {
+          let {data: res} = await DashboardService.getProfitByYear(this.yearProfit)
+          this.chartData[0] = res.revenue
+          this.chartData[1] = res.shippingFee
+          this.profitInYear = res.profit
+        } catch (e) {
+          this.yearProfit = this.currentYear
+          console.log(e)
+        }
+      },
+
+
     }
   }
 </script>
 
 <style scoped>
+  .year-profit {
+    width: 100px !important;
+    color: white !important;
+  }
+
+  input {
+    color: white !important
+  }
+  .none-outline {
+    outline: none !important;
+  }
   @keyframes colorchange
   {
     0%   {background: #9b59b6;}
@@ -278,11 +329,19 @@
     padding: 15px;
   }
 
-  .Chart h2 {
+  .profit-title {
     margin-top: 0;
     padding: 15px 0;
     color:  white;
     border-bottom: 1px solid #323d54;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold !important;
+    font-family:inherit;
   }
 
   .info-box {
@@ -297,6 +356,18 @@
 
   .bg-aqua, .callout.callout-info, .alert-info, .label-info, .modal-info .modal-body {
     background-color: #00c0ef !important;
+  }
+
+  .bg-red {
+    background: #dd4b39 !important;
+  }
+
+  .bg-green {
+    background: #00a65a !important;
+  }
+
+  .bg-warning {
+    background: #f39c12 !important
   }
 
   .info-box-content {
@@ -381,7 +452,7 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    padding: 12px;
+    padding: 10px;
   }
 
 
@@ -413,6 +484,8 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     text-align: center;
+    font-size: 13px;
+    margin-top: 3px;
   }
 
   .users-list-date {
