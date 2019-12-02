@@ -76,6 +76,10 @@
         defaultCategory: {
           name: '',
           parent: '',
+        },
+        editedCategory: {
+          name: '',
+          parent: ''
         }
       }
     },

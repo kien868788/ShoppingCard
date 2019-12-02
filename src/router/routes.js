@@ -13,6 +13,7 @@ import AdminPage from '../pages/Admin'
 import AdminProducts from '../components/admin/Products'
 import AdminCategories from '../components/admin/Categories'
 import AdminDashboard from '../components/admin/Dashboard'
+import AdminEditors from '../components/admin/Editors'
 
 
 import ProductDetailPage from '../pages/ProductDetail'
@@ -85,6 +86,11 @@ export const routes = [
         path: 'categories',
         name: 'admin-categories',
         component: AdminCategories
+      },
+      {
+        path: 'editors',
+        name: 'admin-editors',
+        component: AdminEditors
       }
     ]
   },

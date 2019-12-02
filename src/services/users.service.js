@@ -52,6 +52,22 @@ class UsersService extends BaseService {
         .catch(error => reject(this.errorWrapper(error)))
     })
   }
+
+  getAllEditors() {
+    return new Promise((resolve, reject) => {
+      return this.request({ auth : true }).get(`${this.entity}/editors`)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
+
+  createEditor(data) {
+    return new Promise((resolve, reject) => {
+      return this.request({ auth : true }).post(`${this.entity}/editors`, data)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
 }
 
 export default new UsersService()
