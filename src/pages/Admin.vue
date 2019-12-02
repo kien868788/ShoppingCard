@@ -59,6 +59,11 @@ export default {
           icon: 'mdi-view-dashboard',
           route: 'admin-products'
         },
+        {
+          title: 'Editors',
+          icon: 'mdi-view-dashboard',
+          route: 'admin-editors'
+        },
       ],
       right: null,
     }
