@@ -93,6 +93,7 @@ export default {
 
   .shipping-status {
     background: blue;
+    cursor: pointer;
   }
 
   .cancel-status {
@@ -101,6 +102,7 @@ export default {
 
   .confirmed-status {
     background: #2e86de;
+    cursor: pointer;
   }
 
   .failed-status {

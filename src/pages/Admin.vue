@@ -64,6 +64,11 @@ export default {
           icon: 'mdi-view-dashboard',
           route: 'admin-editors'
         },
+        {
+          title: 'Đơn hàng',
+          icon: 'mdi-view-dashboard',
+          route: 'admin-orders'
+        },
       ],
       right: null,
     }

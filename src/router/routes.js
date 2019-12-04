@@ -14,6 +14,7 @@ import AdminProducts from '../components/admin/Products'
 import AdminCategories from '../components/admin/Categories'
 import AdminDashboard from '../components/admin/Dashboard'
 import AdminEditors from '../components/admin/Editors'
+import AdminOrders from '../components/admin/Orders'
 
 
 import ProductDetailPage from '../pages/ProductDetail'
@@ -91,6 +92,11 @@ export const routes = [
         path: 'editors',
         name: 'admin-editors',
         component: AdminEditors
+      },
+      {
+        path: 'orders',
+        name: 'admin-orders',
+        component: AdminOrders
       }
     ]
   },
