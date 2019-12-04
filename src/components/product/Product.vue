@@ -13,12 +13,12 @@
         <router-link :to="{ name: 'product-detail-page', params: { id: product._id }}">{{ product.name }}</router-link>
       </h3>
       <div class="price" v-if="isSale">
-        {{ `$${ product.discountPrice }`}}
-        <span>{{ `$${ product.price }`}}</span>
+        {{ `${ product.discountPrice }`}} VND
+        <span>{{ `${ product.price }`}} VND</span>
       </div>
 
       <div v-else class="price">
-        {{ `$${ product.price }` }}
+        {{ `${ product.price }` }} VND
       </div>
       <a class="add-to-cart" href="">+ Add To Cart</a>
     </div>

@@ -18,6 +18,8 @@ import AdminOrders from '../components/admin/Orders'
 
 
 import ProductDetailPage from '../pages/ProductDetail'
+import ProductByCategory from '../pages/ProductByCategory'
+import SearchProduct from '../pages/SearchProduct'
 
 
 import { DOMAIN_TITLE } from '../.env'
@@ -68,15 +70,28 @@ export const routes = [
     component: ProductDetailPage,
   },
   {
+    path: '/product-by-category/:categoryId',
+    name: 'product-by-category',
+    props: true,
+    component: ProductByCategory,
+  },
+  {
+    path: '/product-search/:keyword',
+    name: 'product-search',
+    props: true,
+    component: SearchProduct,
+  },
+  {
     path: '/admin',
     name: 'admin-page',
     component: AdminPage,
     meta: { title: `${DOMAIN_TITLE} | Quản lý `, isAuth: true },
+    redirect: { name: 'admin-dashboard'},
     children: [
       {
         path: 'dashboard',
         name: 'admin-dashboard',
-        component: AdminDashboard
+          component: AdminDashboard
       },
       {
         path: 'products',

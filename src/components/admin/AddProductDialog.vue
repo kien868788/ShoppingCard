@@ -1,7 +1,7 @@
 <template>
   <v-dialog
     :value="visible"
-    max-width="600"
+    max-width="800"
     @keydown.esc="closeDialog()"
     @click:outside="closeDialog()"
   >
@@ -85,13 +85,14 @@
 
                 <v-row>
                   <v-col cols="3">
-                    <v-subheader class="font-weight-bold pt-6 px-0">Giá khuyến mãi</v-subheader>
+                    <v-subheader class="font-weight-bold pt-6 px-0">Khuyến mãi</v-subheader>
                   </v-col>
                   <v-col cols="9">
                     <v-text-field
-                      placeholder="Nhập giá khuyễn mãi"
+                      placeholder="Nhập giá phần trăm khuyến mãi"
                       v-model="discountPrice"
                       :rules="[rules.integer]"
+                      prefix="%"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -277,7 +278,7 @@ export default {
         name: this.name,
         category: this.category,
         price: this.price,
-        discountPrice: this.discountPrice || 0,
+        discount: this.discountPrice/100 || 0,
         amounts: this.amounts,
         images: this.imageIds
       }
@@ -287,7 +288,7 @@ export default {
       this.name = this.product.name || '';
       this.category = this.product.category.name || '';
       this.price = this.product.price || 0;
-      this.discountPrice = this.product.discountPrice || 0;
+      this.discountPrice = this.product.discount * 100 || 0;
       this.amounts = this.product.amounts || 0;
       this.imageIds = this.product.images && [...this.product.images.map(image => image._id)];
     }
@@ -297,7 +298,7 @@ export default {
 
 <style lang="stylus">
   .admin-product__filepond
-    width 550px
+    width 750px
     height 250px
 
   .filepond--item

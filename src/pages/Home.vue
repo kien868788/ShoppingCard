@@ -18,12 +18,24 @@
       ></v-carousel-item>
     </v-carousel>
     <div class="container">
-      <h3 class="h3">Shopping</h3>
+      <h3 class="h3">Sản phẩm bán chạy</h3>
       <div class="row">
-        <div class="col-md-3 col-sm-6" v-for="(product,j) in products" :key="j">
+        <div class="col-md-3 col-sm-6" v-if="topProducts && topProducts.length" v-for="(product,j) in topProducts" :key="j">
           <product :product="product"></product>
         </div>
+        <div class="d-flex justify-end col-md-12">
+          <button class="btn-success btn pull-right" @click="getTopProducts()"v-if="topIsEnd == false"><i class="fa fa-plus"></i> Xem thêm</button>
+        </div>
       </div>
+      <h3 class="h3">Sản phẩm mới</h3>
+      <div class="row">
+        <div class="col-md-3 col-sm-6" v-if="newProducts && newProducts.length" v-for="(product,j) in newProducts" :key="j">
+          <product :product="product"></product>
+        </div>
+        <div class="d-flex justify-end col-md-12">
+          <button class="btn-success btn" @click="getNewProducts()" v-if="newIsEnd == false"><i class="fa fa-plus"></i> Xem thêm</button>
+        </div>
+        </div>
     </div>
   </div>
 </template>
@@ -40,12 +52,18 @@ export default {
 
   data () {
     return {
-      products: []
+      topProducts: [],
+      newProducts: [],
+      topIsEnd: true,
+      newIsEnd: true,
+      topPage: 0,
+      newPage: 0
     }
   },
 
   mounted() {
-    this.init();
+    this.getTopProducts();
+    this.getNewProducts();
   },
 
   methods: {
@@ -53,6 +71,21 @@ export default {
       const resp = await productService.getAll();
       this.products = resp.data.products;
     },
+
+    async getTopProducts() {
+      this.topPage++
+      const {data: res} = await productService.getTopProducts({page: this.topPage});
+      this.topProducts = this.topProducts.concat(res.products)
+      console.log(this.topProducts)
+      this.topIsEnd = res.isEnd
+    },
+
+    async getNewProducts() {
+      this.newPage++
+      const {data: res} = await productService.getNewProducts({page: this.newPage});
+      this.newProducts = this.newProducts.concat(res.products)
+      this.newIsEnd = res.isEnd
+    }
   }
 }
 </script>

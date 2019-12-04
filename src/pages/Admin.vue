@@ -51,22 +51,22 @@ export default {
         },
         {
           title: 'Thể loại',
-          icon: 'mdi-view-dashboard',
+          icon: 'fa fa-list',
           route: 'admin-categories'
         },
         {
           title: 'Sản phẩm',
-          icon: 'mdi-view-dashboard',
+          icon: 'fab fa-product-hunt',
           route: 'admin-products'
         },
         {
           title: 'Editors',
-          icon: 'mdi-view-dashboard',
+          icon: 'fa fa-user-edit',
           route: 'admin-editors'
         },
         {
           title: 'Đơn hàng',
-          icon: 'mdi-view-dashboard',
+          icon: 'fas fa-money-check-alt',
           route: 'admin-orders'
         },
       ],

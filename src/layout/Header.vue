@@ -55,12 +55,12 @@
                     <li 
                     v-for="(text, index) in item" :key="index"
                     :style="index == 0 ? 'list-style: none' : ''">
-                      <a
-                    href="#"
-                    :class="index !== 0 ? 'border_bottom' : 'dropdown-item__head'"
-                  >
-                    {{ text }}
-                  </a>
+                      <router-link
+                        :to="{ name: 'product-by-category', params: { categoryId: text.id }}"
+                         :class="index !== 0 ? 'border_bottom' : 'dropdown-item__head'"
+                       >
+                       {{ text.name }}
+                     </router-link>
                     </li>
                   </ul>
                 </div>
@@ -70,8 +70,8 @@
           </li>
         </ul>
         <form class="form-inline my-auto mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" style="height: 35px;">
-          <button class="btn btn-outline-secondary mr-sm-2" type="button"><img src="../assets/img/search.png" alt="search"  style="width: 20px"></button>
+          <input class="form-control mr-sm-2" v-model="keyword" type="text" placeholder="Search" aria-label="Search" style="height: 35px;">
+          <button class="btn btn-outline-secondary mr-sm-2" type="button" @click="$router.push({ name: 'product-search', params: {keyword: keyword}})"><img src="../assets/img/search.png" alt="search"  style="width: 20px"></button>
           <button class="btn btn-outline-secondary" type="button"><img src="../assets/img/cart.png" alt="search"  style="width: 20px"></button>
         </form>
       </div>
@@ -88,7 +88,7 @@
 import LoginDialog from '../components/Login';
 import { makeLogout } from "../services/auth.service";
 import { mapGetters } from 'vuex';
-
+import CategoryService from '../services/category.service'
 export default {
 
   components: {
@@ -100,80 +100,13 @@ export default {
       makeLogout,
       loginDialogVisible: false,
       defaultLoginDialogTab: 'login',
-      dropdowns: [
-        {
-          text: "QUẦN NAM",
-          items: [
-            [
-              "ÁO SƠ MI NAM", "Áo sơ mi hàn quốc",
-              "Áo sơ mi họa tiết",
-              "Áo sơ mi caro",
-              "Áo sơ mi ngắn tay",
-              "Áo sơ mi jean",
-            ],
-            [
-              "ÁO SƠ MI NAM", "Áo sơ mi hàn quốc",
-              "Áo sơ mi họa tiết",
-              "Áo sơ mi caro",
-              "Áo sơ mi ngắn tay",
-              "Áo sơ mi jean",
-            ],
-            [
-              "ÁO SƠ MI NAM", "Áo sơ mi hàn quốc",
-              "Áo sơ mi họa tiết",
-              "Áo sơ mi caro",
-              "Áo sơ mi ngắn tay",
-              "Áo sơ mi jean",
-            ]
-          ]
-        },
-        {
-          text: "ÁO NAM",
-          items: [
-            [
-              "ÁO SƠ MI NAM",
-              "Áo sơ mi hàn quốc",
-              "Áo sơ mi họa tiết",
-              "Áo sơ mi caro",
-              "Áo sơ mi ngắn tay",
-              "Áo sơ mi jean",
-            ],
-            [
-              "ÁO SO MI NAM",
-              "Áo sơ mi hàn quốc",
-              "Áo sơ mi họa tiết",
-              "Áo sơ mi caro",
-              "Áo sơ mi ngắn tay",
-              "Áo sơ mi jean",
-            ],
-            [
-              "ÁO SO MI NAM",
-              "Áo sơ mi hàn quốc",
-              "Áo sơ mi họa tiết",
-              "Áo sơ mi caro",
-              "Áo sơ mi ngắn tay",
-              "Áo sơ mi jean",
-            ],
-            [
-              "ÁO SO MI NAM",
-              "Áo sơ mi hàn quốc",
-              "Áo sơ mi họa tiết",
-              "Áo sơ mi caro",
-              "Áo sơ mi ngắn tay",
-              "Áo sơ mi jean",
-            ],
-            [
-              "ÁO SO MI NAM",
-              "Áo sơ mi hàn quốc",
-              "Áo sơ mi họa tiết",
-              "Áo sơ mi caro",
-              "Áo sơ mi ngắn tay",
-              "Áo sơ mi jean",
-            ],
-          ]
-        },
-      ],
+      dropdowns: [],
+      keyword: ''
     };
+  },
+
+  mounted() {
+    this.getCategories();
   },
 
   computed: {
@@ -188,6 +121,33 @@ export default {
       this.loginDialogVisible = true;
     },
     ...mapGetters({ isAdmin: 'user/isAdmin'}),
+
+    async getCategories() {
+      const {data: parentCategories} = await CategoryService.getAllWithRelation();
+      let dropdownsItems = []
+      parentCategories.forEach(function(parentCategorie) {
+        let items = []
+        parentCategorie.subCategories.forEach(function(subCategory) {
+          let subItems = []
+          subItems.push({
+            name: subCategory.name,
+            id: subCategory._id
+          })
+          subCategory.subCategories.forEach(function(secondSubCategory) {
+            subItems.push({
+              name: secondSubCategory.name,
+              id: secondSubCategory._id
+            })
+          })
+          items.push(subItems)
+        })
+        dropdownsItems.push({
+          text: parentCategorie.name,
+          items: items
+        })
+      });
+      this.dropdowns = dropdownsItems
+    }
   },
 }
 </script>

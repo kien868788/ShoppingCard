@@ -13,6 +13,13 @@ class CategoryService extends BaseService {
     })
   }
 
+  getAllWithRelation() {
+    return new Promise((resolve, reject) => {
+      return this.request().get(`${this.entity}/relationship`)
+        .then(response => resolve(this.responseWrapper(response, response.data.data)))
+        .catch(error => reject(this.errorWrapper(error)))
+    })
+  }
 }
 
 export default new CategoryService();

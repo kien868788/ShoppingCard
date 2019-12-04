@@ -121,7 +121,7 @@
                     <a href="" class="product-title">{{ product.name }}
                       <span class="label label-success pull-right">{{ product.discountPrice }} vnd</span></a>
                     <span class="product-description">
-                          Samsung 32" 1080p 60Hz LED Smart HDTV.
+                      Còn {{ product.amounts }} sản phẩm
                         </span>
                   </div>
                 </li>
@@ -466,6 +466,7 @@
     padding: 10px 0;
     background: #fff;
     display: block;
+    width: 100% !important;
   }
 
   .products-list .product-img {
