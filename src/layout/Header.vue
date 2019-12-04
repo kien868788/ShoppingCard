@@ -45,21 +45,25 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li>
-            <button class="dropbtn active" >HOME</button>
-          </li>
           <li v-for="(dropdown,j) in dropdowns" :key="j">
             <div class="dropdown">
               <button class="dropbtn">{{ dropdown.text }}</button>
               <div class="dropdown-content">
-                <div class="item" v-for="(item,j) in dropdown.items" :key="j">
-                  <a
+                <div class="mega-item">
+                  <div class="item" v-for="(item,j) in dropdown.items" :key="j">
+                  <ul>
+                    <li 
                     v-for="(text, index) in item" :key="index"
+                    :style="index == 0 ? 'list-style: none' : ''">
+                      <a
                     href="#"
                     :class="index !== 0 ? 'border_bottom' : 'dropdown-item__head'"
                   >
                     {{ text }}
                   </a>
+                    </li>
+                  </ul>
+                </div>
                 </div>
               </div>
             </div>
@@ -98,10 +102,24 @@ export default {
       defaultLoginDialogTab: 'login',
       dropdowns: [
         {
-          text: "ÁO NAM",
+          text: "QUẦN NAM",
           items: [
             [
-              "ÁO SO MI NAM", "Áo sơ mi hàn quốc",
+              "ÁO SƠ MI NAM", "Áo sơ mi hàn quốc",
+              "Áo sơ mi họa tiết",
+              "Áo sơ mi caro",
+              "Áo sơ mi ngắn tay",
+              "Áo sơ mi jean",
+            ],
+            [
+              "ÁO SƠ MI NAM", "Áo sơ mi hàn quốc",
+              "Áo sơ mi họa tiết",
+              "Áo sơ mi caro",
+              "Áo sơ mi ngắn tay",
+              "Áo sơ mi jean",
+            ],
+            [
+              "ÁO SƠ MI NAM", "Áo sơ mi hàn quốc",
               "Áo sơ mi họa tiết",
               "Áo sơ mi caro",
               "Áo sơ mi ngắn tay",
@@ -113,7 +131,7 @@ export default {
           text: "ÁO NAM",
           items: [
             [
-              "ÁO SO MI NAM",
+              "ÁO SƠ MI NAM",
               "Áo sơ mi hàn quốc",
               "Áo sơ mi họa tiết",
               "Áo sơ mi caro",
