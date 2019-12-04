@@ -63,12 +63,13 @@
             <hr>
             <div class="row">
               <div class="col -sm-3">
-                <v-btn color="success" style="border-radius: 5px;padding:5px;" @click="addCartItem">
+                <v-btn color="success" style="border-radius: 5px;padding:10px;height:auto;" @click="addCartItem">
                   THÊM GIỎ HÀNG
-                  <img src="../assets/img/shopping-cart.png" alt="cart_">
+                  <i class="fas fa-shopping-cart " style="font-size:20px;" ></i>
                 </v-btn>
               </div>
               <v-alert
+                style="margin-top:10px;"
                 type="success"
                 dense
                 :value="!!successMessage"

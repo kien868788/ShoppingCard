@@ -72,7 +72,7 @@
             <div class="box-body no-padding">
               <ul>
                 <carousel :autoplay="true" :nav="false" :items="4" :margin="15" :dots="false" v-if="topUsers && topUsers.length">
-                  <div class="users-item" v-for="topUser in topUsers">
+                  <div class="users-item" v-for="(topUser, j) in topUsers" :key="j">
                     <img class="user-img" src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="User Image">
                     <a class="users-list-name" href="#">{{ topUser.email }}</a>
                     <span class="users-list-date">{{ topUser.numberOrder }} đơn hàng</span>
@@ -94,7 +94,7 @@
             <div class="box-body no-padding">
               <ul>
                 <carousel :autoplay="true" :nav="false" :items="4" :margin="15" :dots="false" v-if="lastedUsers && lastedUsers.length">
-                  <div v-for="lastedUser in lastedUsers" class="users-item">
+                  <div v-for="(lastedUser,j) in lastedUsers" :key="j" class="users-item">
                     <img class="user-img" src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="User Image">
                     <a class="users-list-name" href="#">{{ lastedUser.fullName }}</a>
                     <span class="users-list-date">{{ $showTime(lastedUser.createdAt) }}</span>
@@ -113,7 +113,7 @@
             </div>
             <div class="box-body">
               <ul class="products-list product-list-in-box">
-                <li class="item" v-for="product in topProducts">
+                <li class="item" v-for="(product,j) in topProducts" :key="j">
                   <div class="product-img">
                     <img :src="$getImageUrl(product.images[0].image_path)" alt="Product Image">
                   </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-carousel>
+    <v-carousel interval="2500">
       <v-carousel-item
         src="@/assets/img/img3.png"
         reverse-transition="fade-transition"
@@ -20,7 +20,7 @@
     <div class="container">
       <h3 class="h3">Shopping</h3>
       <div class="row">
-        <div class="col-md-3 col-sm-6" v-for="product in products">
+        <div class="col-md-3 col-sm-6" v-for="(product,j) in products" :key="j">
           <product :product="product"></product>
         </div>
       </div>

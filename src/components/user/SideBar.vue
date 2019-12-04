@@ -31,14 +31,6 @@ export default {
           {
             text: "Đổi mật khẩu",
             route: "user-password",
-          },
-          {
-            text: "Mã giảm giá của bạn",
-            route: ""
-          },
-          {
-            text: "Hỏi đáp",
-            route: ""
           }
         ]
       },

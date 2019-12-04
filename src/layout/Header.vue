@@ -3,25 +3,11 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end py-0">
       <ul class="navbar-nav">
         <li class="navbar-brand">
-          <img src ="../assets/img/telephone.png" alt="telephone" style="width:30px;">
+          <img src ="../assets/img/telephone.png" alt="telephone" style="width:20px;">
         </li>
         <li class="navbar-text mr-5">
-          <div class="text-danger">Hotline: 0868788245</div>
+          <div class="text-yellow">Hotline: 0868788245</div>
         </li>
-        <li class="nav-item">
-          <div class="nav-link">
-            <i class="far fa-newspaper"></i>
-            Thông báo
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <div class="nav-link">
-            <i class="fas fa-hands-helping"></i>
-            Trợ Giúp
-          </div>
-        </li>
-
         <li class="nav-item " v-show="!$currentUser._id">
           <div class="nav-link register clickable" @click="openLoginDialog()">
             Đăng Ký
@@ -50,7 +36,7 @@
       </ul>
     </nav>
 
-    <div class="navbar navbar-expand-md navbar-dark bg-light mb-0 py-0 sticky-top" v-if="!isAdmin()">
+    <div class="navbar navbar-expand-md navbar-dark color-nav mb-0 py-0 sticky-top" v-if="!isAdmin()">
       <router-link class="navbar-brand" :to="{ name: 'index' }">
         <img src="../assets/img/logo.png" alt="logo" width="50%">
       </router-link>
@@ -59,21 +45,25 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li>
-            <button class="dropbtn active" >HOME</button>
-          </li>
-          <li v-for="dropdown in dropdowns">
+          <li v-for="(dropdown,j) in dropdowns" :key="j">
             <div class="dropdown">
               <button class="dropbtn">{{ dropdown.text }}</button>
               <div class="dropdown-content">
-                <div class="item" v-for="item in dropdown.items">
-                  <a
-                    v-for="(text, index) in item"
+                <div class="mega-item">
+                  <div class="item" v-for="(item,j) in dropdown.items" :key="j">
+                  <ul>
+                    <li 
+                    v-for="(text, index) in item" :key="index"
+                    :style="index == 0 ? 'list-style: none' : ''">
+                      <a
                     href="#"
                     :class="index !== 0 ? 'border_bottom' : 'dropdown-item__head'"
                   >
                     {{ text }}
                   </a>
+                    </li>
+                  </ul>
+                </div>
                 </div>
               </div>
             </div>
@@ -112,10 +102,24 @@ export default {
       defaultLoginDialogTab: 'login',
       dropdowns: [
         {
-          text: "ÁO NAM",
+          text: "QUẦN NAM",
           items: [
             [
-              "ÁO SO MI NAM", "Áo sơ mi hàn quốc",
+              "ÁO SƠ MI NAM", "Áo sơ mi hàn quốc",
+              "Áo sơ mi họa tiết",
+              "Áo sơ mi caro",
+              "Áo sơ mi ngắn tay",
+              "Áo sơ mi jean",
+            ],
+            [
+              "ÁO SƠ MI NAM", "Áo sơ mi hàn quốc",
+              "Áo sơ mi họa tiết",
+              "Áo sơ mi caro",
+              "Áo sơ mi ngắn tay",
+              "Áo sơ mi jean",
+            ],
+            [
+              "ÁO SƠ MI NAM", "Áo sơ mi hàn quốc",
               "Áo sơ mi họa tiết",
               "Áo sơ mi caro",
               "Áo sơ mi ngắn tay",
@@ -126,6 +130,14 @@ export default {
         {
           text: "ÁO NAM",
           items: [
+            [
+              "ÁO SƠ MI NAM",
+              "Áo sơ mi hàn quốc",
+              "Áo sơ mi họa tiết",
+              "Áo sơ mi caro",
+              "Áo sơ mi ngắn tay",
+              "Áo sơ mi jean",
+            ],
             [
               "ÁO SO MI NAM",
               "Áo sơ mi hàn quốc",
