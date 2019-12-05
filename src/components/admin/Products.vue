@@ -25,7 +25,7 @@
         <div class="d-flex ma-0 pa-0">
           <v-img
             class="ma-0 pa-0"
-            :src="$getImageUrl(item.images[0].image_path)"
+            :src="item.images && item.images.length > 0 && $getImageUrl(item.images[0].image_path) || ''"
             max-width="50px"
             max-height="50px"
           ></v-img>

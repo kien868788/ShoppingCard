@@ -51,6 +51,7 @@
               v-model="yearProfit"
               class="year-profit"
               @keyup.enter.native="getProfitByYear()"
+              @change="getProfitByYear"
               :rules="[rules.integer]"
             ></v-text-field>
           </div>
@@ -227,8 +228,9 @@
       async getProfitByYear () {
         try {
           let {data: res} = await DashboardService.getProfitByYear(this.yearProfit)
-          this.chartData[0] = res.revenue
-          this.chartData[1] = res.shippingFee
+          // this.chartData[0] = res.revenue
+          // this.chartData[1] = res.shippingFee
+          this.chartData = [res.revenue, res.shippingFee]
           this.profitInYear = res.profit
         } catch (e) {
           this.yearProfit = this.currentYear

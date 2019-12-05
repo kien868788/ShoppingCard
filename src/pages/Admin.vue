@@ -54,7 +54,6 @@ export default {
           title: 'Thể loại',
           icon: 'fa fa-list',
           route: 'admin-categories',
-          isAdmin: true,
         },
         {
           title: 'Sản phẩm',
@@ -64,7 +63,8 @@ export default {
         {
           title: 'Editors',
           icon: 'fa fa-user-edit',
-          route: 'admin-editors'
+          route: 'admin-editors',
+          isAdmin: true,
         },
         {
           title: 'Đơn hàng',

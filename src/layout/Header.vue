@@ -70,12 +70,13 @@
           </li>
         </ul>
         <form class="form-inline my-auto mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" style="height: 35px;">
-          <button class="btn btn-outline-secondary mr-sm-2" type="button"><img src="../assets/img/search.png" alt="search"  style="width: 20px"></button>
+          <input class="form-control mr-sm-2" v-model="keyword" type="text" placeholder="Search" aria-label="Search" style="height: 35px;">
+          <button class="btn btn-outline-secondary mr-sm-2" type="button"><img src="../assets/img/search.png" alt="search"  style="width: 20px" @click="$router.push({ name: 'product-search', params: {keyword }})"></button>
           <v-badge
             :value="numberOfProduct"
             color="red"
             overlap
+            v-if="$currentUser._id"
           >
             <template v-slot:badge>
               {{ numberOfProduct }}

@@ -23,7 +23,7 @@
             </td>
             <td class="d-flex">
               <v-img
-                :src="$getImageUrl(item.product.images[0].image_path)"
+                :src="item.product.images && item.product.images.length > 0 && $getImageUrl(item.product.images[0].image_path) || ''"
                 max-width="50px"
                 max-height="50px"
               ></v-img>
@@ -285,7 +285,7 @@ export default {
 
       const cartItemIds = this.selectedCartItems.map(item => item._id);
 
-      await orderService.create({cartItemIds, shippingAddress: this.selectedShippingAddress })
+      await orderService.create({cartItemIds, shippingAddress: this.selectedShippingAddress, phoneNumber: this.$currentUser.phoneNumber || "0868788245"})
       await this.$store.dispatch('cart/getCartData');
       this.step = 3;
     },

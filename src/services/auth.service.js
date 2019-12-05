@@ -37,5 +37,6 @@ function _setAuthData({ user }) {
 
 function _resetAuthData() {
   $store.commit("user/SET_CURRENT_USER", {});
+  $store.commit("cart/SET_CART_DATA",{})
   localStorage.setItem("token","");
 }

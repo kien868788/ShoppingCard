@@ -17,6 +17,13 @@ export default {
       gradient2: null,
     }
   },
+
+  watch: {
+    chartData() {
+      this.createChart();
+    }
+  },
+
   mounted() {
     this.createChart()
   },
