@@ -1,3 +1,4 @@
 export default {
-  products: state => state.cartItems.map(cartItem => cartItem.product)
+  cartItems : state => state.cartItems.filter(Boolean),
+  numberOfProduct: state => state.cartItems.length,
 }

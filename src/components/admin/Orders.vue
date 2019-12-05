@@ -3,6 +3,9 @@
     <v-data-table
       :headers="headers"
       :items="orders"
+      :page.sync="page"
+      :server-items-length="total"
+      :items-per-page.sync="limit"
     >
       <template v-slot:top>
         <v-toolbar flat color="white">
@@ -149,6 +152,11 @@
           shipping: 'shipping',
           confirmed: 'confirmed'
         },
+
+        limit: 10,
+        page: 1,
+        total: -1,
+
         headers: [
           {
             text: "Khách hàng",
@@ -178,6 +186,16 @@
       this.init();
     },
 
+    watch: {
+      page() {
+        this.init();
+      },
+
+      limit() {
+        this.init();
+      },
+    },
+
     methods: {
       openFinishedOrderDialog({ _id }) {
         this.editingId = _id;
@@ -190,10 +208,10 @@
       },
 
 
-      async fetOrders(page = 1) {
-
-        const { data: res } = await OrderService.getAllOrders({page: page});
+      async fetOrders() {
+        const { data: res } = await OrderService.getAllOrders({page: this.page, limit: this.limit});
         this.orders = res.orders;
+        this.total = res.total;
       },
 
       async init() {

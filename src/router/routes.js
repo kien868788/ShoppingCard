@@ -23,6 +23,9 @@ import SearchProduct from '../pages/SearchProduct'
 
 
 import { DOMAIN_TITLE } from '../.env'
+import CartDetail from "../components/cart/CartDetail";
+
+import $store from'../store'
 
 export const routes = [
   {
@@ -70,6 +73,12 @@ export const routes = [
     component: ProductDetailPage,
   },
   {
+    path: '/carts',
+    name: 'carts-detail',
+    component: CartDetail,
+    meta: { title: `${DOMAIN_TITLE} | carts`, isAuth: true }
+  },
+  {
     path: '/product-by-category/:categoryId',
     name: 'product-by-category',
     props: true,
@@ -86,6 +95,14 @@ export const routes = [
     name: 'admin-page',
     component: AdminPage,
     meta: { title: `${DOMAIN_TITLE} | Quản lý `, isAuth: true },
+    beforeEnter: (to, from , next) => {
+      const userRole = $store.state.user.currentUser.role;
+      if (userRole !== 3) {
+        next();
+      } else {
+        next({name : 'index'})
+      }
+    },
     redirect: { name: 'admin-dashboard'},
     children: [
       {

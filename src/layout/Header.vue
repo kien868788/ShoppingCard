@@ -52,7 +52,7 @@
                 <div class="mega-item">
                   <div class="item" v-for="(item,j) in dropdown.items" :key="j">
                   <ul>
-                    <li 
+                    <li
                     v-for="(text, index) in item" :key="index"
                     :style="index == 0 ? 'list-style: none' : ''">
                       <router-link
@@ -70,9 +70,24 @@
           </li>
         </ul>
         <form class="form-inline my-auto mt-md-0">
-          <input class="form-control mr-sm-2" v-model="keyword" type="text" placeholder="Search" aria-label="Search" style="height: 35px;">
-          <button class="btn btn-outline-secondary mr-sm-2" type="button" @click="$router.push({ name: 'product-search', params: {keyword: keyword}})"><img src="../assets/img/search.png" alt="search"  style="width: 20px"></button>
-          <button class="btn btn-outline-secondary" type="button"><img src="../assets/img/cart.png" alt="search"  style="width: 20px"></button>
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" style="height: 35px;">
+          <button class="btn btn-outline-secondary mr-sm-2" type="button"><img src="../assets/img/search.png" alt="search"  style="width: 20px"></button>
+          <v-badge
+            :value="numberOfProduct"
+            color="red"
+            overlap
+          >
+            <template v-slot:badge>
+              {{ numberOfProduct }}
+            </template>
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              @click="$router.push({name: 'carts-detail'})"
+            >
+              <img src="../assets/img/cart.png" alt="search"  style="width: 20px">
+            </button>
+          </v-badge>
         </form>
       </div>
     </div>
@@ -112,7 +127,8 @@ export default {
   computed: {
     greeting() {
       return `Xin chào ${this.$currentUser.fullName || 'bạn'}`;
-    }
+    },
+    ...mapGetters({ numberOfProduct: 'cart/numberOfProduct'}),
   },
 
   methods: {

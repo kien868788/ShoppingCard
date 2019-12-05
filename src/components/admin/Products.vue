@@ -3,6 +3,9 @@
     <v-data-table
       :headers="headers"
       :items="products"
+      :page.sync="page"
+      :server-items-length="total"
+      :items-per-page.sync="limit"
     >
       <template v-slot:top>
         <v-toolbar flat color="white">
@@ -16,6 +19,20 @@
           <v-spacer></v-spacer>
           <v-btn color="success" @click="addDialogVisible = true"> Thêm sản phẩm</v-btn>
         </v-toolbar>
+      </template>
+
+      <template v-slot:item.name="{ item }">
+        <div class="d-flex ma-0 pa-0">
+          <v-img
+            class="ma-0 pa-0"
+            :src="$getImageUrl(item.images[0].image_path)"
+            max-width="50px"
+            max-height="50px"
+          ></v-img>
+          <div class="mt-1 ml-2">
+            {{ item.name }}
+          </div>
+        </div>
       </template>
 
       <template v-slot:item.action="{ item }">
@@ -101,6 +118,10 @@ export default {
       ],
       products: [],
 
+      page: 1,
+      limit: 10,
+      total: -1,
+
       defaultProduct: {
         name: '',
         category: {
@@ -129,10 +150,21 @@ export default {
     this.init();
   },
 
+  watch: {
+    page() {
+      this.init();
+    },
+
+    limit() {
+      this.init();
+    }
+  },
+
   methods: {
     async fetchProducts() {
-      const resp = await productService.getAll();
+      const resp = await productService.getAll({ limit: this.limit, page: this.page });
       this.products = resp.data.products || [];
+      this.total = resp.data.total;
     },
 
     async init() {

@@ -5,9 +5,9 @@ class ProductService extends BaseService {
     return 'product'
   }
 
-  getAll() {
+  getAll({limit = 12, page = 1}) {
     return new Promise((resolve, reject) => {
-      return this.request().get(`${this.entity}`)
+      return this.request().get(`${this.entity}?limit=${limit}&page=${page}`)
         .then(response => resolve(this.responseWrapper(response, response.data.data)))
         .catch(error => reject(this.errorWrapper(error)))
     })

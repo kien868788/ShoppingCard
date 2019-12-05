@@ -43,16 +43,18 @@
 export default {
   data() {
     return {
-      items: [
+      originalItems: [
         {
           title: 'Dashboard',
           icon: 'mdi-view-dashboard',
-          route: 'admin-dashboard'
+          route: 'admin-dashboard',
+          isAdmin: true,
         },
         {
           title: 'Thể loại',
           icon: 'fa fa-list',
-          route: 'admin-categories'
+          route: 'admin-categories',
+          isAdmin: true,
         },
         {
           title: 'Sản phẩm',
@@ -67,12 +69,20 @@ export default {
         {
           title: 'Đơn hàng',
           icon: 'fas fa-money-check-alt',
-          route: 'admin-orders'
+          route: 'admin-orders',
+          isAdmin: true,
         },
       ],
       right: null,
     }
-  }
+  },
+
+  computed: {
+    items() {
+      return this.$isAdmin ? this.originalItems :
+        this.originalItems.filter(item => !item.isAdmin)
+    }
+  },
 }
 </script>
 

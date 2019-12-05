@@ -6,5 +6,6 @@ export default {
     phoneNumber: '',
     fullName: '',
     role: 3,
+    shippingAddresses: []
   }
 }

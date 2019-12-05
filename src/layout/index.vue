@@ -28,6 +28,7 @@ export default {
 @import "../assets/css/home.css"
 @import "../assets/css/info_user.css"
 @import "../assets/css/detail.css"
+@import "../assets/css/cart.css"
 .clickable
   cursor pointer
 </style>
