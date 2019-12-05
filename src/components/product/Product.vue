@@ -20,7 +20,8 @@
       <div v-else class="price">
         {{ `${ product.price }` }} VND
       </div>
-      <a class="add-to-cart" href="">+ Add To Cart</a>
+      <div class="add-to-cart clickable" @click="addToCart" v-if="$currentUser._id">+ Add To Cart</div>
+      <div v-else class="add-to-cart">&nbsp</div>
     </div>
   </div>
 </template>
@@ -34,6 +35,17 @@ export default {
   computed: {
     isSale() {
       return this.product.discountPrice > 0 && this.product.price > this.product.discountPrice;
+    }
+  },
+
+  methods: {
+    async addToCart() {
+      await this.$store.dispatch("cart/addCard", { quantity: 1, id: this.product._id });
+      this.$toasted.show("Thêm thành công !!", {
+        icon: "check",
+        duration: 2000,
+        type: "success"
+      })
     }
   },
 

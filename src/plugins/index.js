@@ -6,5 +6,6 @@ import Vue from 'vue'
 
 import globalEventBus from '../plugins/globalEventBus'
 import './file-pond'
+import './toast'
 
 Vue.use(globalEventBus)

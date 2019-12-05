@@ -8,6 +8,7 @@
             <v-carousel>
               <v-carousel-item
                 v-for="{ image_path } in product.images"
+                :key="image_path"
                 :src="$getImageUrl(image_path)"
                 reverse-transition="fade-transition"
                 transition="fade-transition"

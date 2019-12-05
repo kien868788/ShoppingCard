@@ -113,7 +113,7 @@
                     <v-col cols="4">Số lượng</v-col>
                     <v-col cols="4">Giá</v-col>
                   </v-row>
-                  <v-row v-for="cartItem in selectedCartItems">
+                  <v-row v-for="cartItem in selectedCartItems" :key="cartItem._id">
                     <v-col cols="4">{{ cartItem.product.name }}</v-col>
                     <v-col cols="4">{{ cartItem.quantity }}</v-col>
                     <v-col cols="4">{{ isSale(cartItem.product) ? cartItem.product.discountPrice : cartItem.product.price }} VNĐ</v-col>
